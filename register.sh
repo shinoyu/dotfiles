@@ -8,7 +8,7 @@ ln -s ${c_dir}/tigrc ~/.tigrc
 
 # import git-prompt
 if [ ! -e "~/.git-prompt.sh" ]; then
-	curl "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh" > ~/.git-prompt.sh
+	curl --insecure "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh" > ~/.git-prompt.sh
 fi
 
 source ~/.bash_profile

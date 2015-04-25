@@ -10,7 +10,6 @@ set split-view-height = 70%
 # diff 周辺のコードをどれだけ表示させるか
 set diff-context = 4
 set tab-size = 4
-set show-date = local
 
 # マウス使用できるかどうか
 set mouse = yes

@@ -8,9 +8,7 @@ PS1='@\u \W$(__git_ps1 "[\[\033[32m\]%s\[\033[0m\]]")\$ '
 # golangs-a
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
-#----------
-
-export PATH=$HOME/.rbenv/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/bin:~/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/bin:$HOME/.bash_ext:$HOME/.nodebrew/current/bin:$PATH
 eval "$(rbenv init -)"
 
 # aliases
@@ -35,4 +33,11 @@ alias g.p='git pull'
 alias g.f='git fetch'
 alias g.m='git merge'
 alias g.ch='git checkout'
-alias g.ch.b='git checkout -b'a
+alias g.ch.b='git checkout -b'
+
+# load extension functions.
+if [ -e "/cygdrive" ]; then
+	echo "load extension. for cygwin."
+	source $HOME/.bash_ext/cygwin.sh
+fi
+

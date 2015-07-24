@@ -10,7 +10,7 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 #----------
 
-export PATH=$HOME/.rbenv/bin:$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/bin:~/.nodebrew/current/bin:$PATH
 eval "$(rbenv init -)"
 
 # aliases

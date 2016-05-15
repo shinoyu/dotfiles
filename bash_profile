@@ -1,5 +1,6 @@
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
+export EDITOR=vim
 
 source ~/.git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -7,8 +8,8 @@ PS1='@\u \W$(__git_ps1 "[\[\033[32m\]%s\[\033[0m\]]")\$ '
 
 # direnv
 has_cmd=`which direnv 2>&1`
-if [[ ! "${?}" = "0" ]]; then
-	eval "$(direnv hook bash)"
+if [[ "${?}" = "0" ]]; then
+	eval "$(direnv hook $SHELL)"
 fi
 
 # golangs-a
@@ -17,7 +18,7 @@ fi
 # export PATH=$HOME/.rbenv/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/bin:$HOME/.bash_ext:$HOME/.nodebrew/current/bin:$PATH
 
 has_cmd=`which rbenv 2>&1`
-if [[ ! "${?}" = "0" ]]; then
+if [[ "${?}" = "0" ]]; then
 	eval "$(rbenv init -)"
 fi
 

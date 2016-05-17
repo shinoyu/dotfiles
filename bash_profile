@@ -45,12 +45,13 @@ alias g_f='git fetch'
 alias g_m='git merge'
 alias g_ch='git checkout'
 alias g_ch.b='git checkout -b'
-alias bash.reload='source $HOME/.bash_profile'
-alias bash.edit='vim $HOME/.bash_profile'
+alias bash.profile.reload='source $HOME/.bash_profile'
+alias bash.profile.edit='vim $HOME/.bash_profile'
+alias g_s_u='git submodule update'
+alias g_c_u='git symbolic-ref --short HEAD | xargs git pull origin'
 
 # load extension functions.
 if [ -e "/cygdrive" ]; then
 	echo "load extension. for cygwin."
 	source $HOME/.bash_ext/cygwin.sh
 fi
-

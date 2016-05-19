@@ -3,6 +3,7 @@ c_dir=$(pwd)
 # link to user dir.
 ln -f -s ${c_dir}/vimrc $HOME/.vimrc
 ln -f -s ${c_dir}/bash_profile $HOME/.bash_profile
+ln -f -s ${c_dir}/zshrc $HOME/.zshrc
 ln -f -s ${c_dir}/tigrc $HOME/.tigrc
 ln -f -s ${c_dir}/bash_ext $HOME/.bash_ext
 

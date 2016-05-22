@@ -20,7 +20,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプト
-PROMPT="@%n%F{green}[%~]%f
+PROMPT="@%n%F{green} %~ %f
 # "
 
 # 単語の区切り文字を指定する
@@ -58,13 +58,13 @@ autoload -Uz add-zsh-hook
 setopt prompt_subst
 
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{blue}+"
-zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}*"
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}+%f"
+zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}*%f"
 zstyle ':vcs_info:*' formats '%F{green}%c%u[%b]%f'
 zstyle ':vcs_info:*' actionformats '[%b|%F{red}%a%f]'
 function _vsc_precmd() {
   LANG=en_US.UTF-8 vcs_info
-	RPROMPT="${vcs_info_msg_0_}"
+	RPROMPT="%F{green}${vcs_info_msg_0_}%f"
 }
 add-zsh-hook precmd _vsc_precmd
 
@@ -81,7 +81,6 @@ function peco-select-history() {
         eval $tac | \
         peco --query "$LBUFFER")
     CURSOR=$#BUFFER
-    zle clear-screen
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
@@ -94,7 +93,6 @@ function peco-git-recent-branches () {
         BUFFER="git checkout ${selected_branch}"
         zle accept-line
     fi
-    zle clear-screen
 }
 zle -N peco-git-recent-branches
 

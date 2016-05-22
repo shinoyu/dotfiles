@@ -20,8 +20,8 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプト
-PROMPT="@%n%{${fg[green]}%}[%~]${reset_color}%}
-%F{white}# "
+PROMPT="@%n%F{green}[%~]%f
+# "
 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
@@ -58,10 +58,10 @@ autoload -Uz add-zsh-hook
 setopt prompt_subst
 
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{blue}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}+"
+zstyle ':vcs_info:git:*' stagedstr "%F{blue}+"
+zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}*"
 zstyle ':vcs_info:*' formats '%F{green}%c%u[%b]%f'
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:*' actionformats '[%b|%F{red}%a%f]'
 function _vsc_precmd() {
   LANG=en_US.UTF-8 vcs_info
 	RPROMPT="${vcs_info_msg_0_}"

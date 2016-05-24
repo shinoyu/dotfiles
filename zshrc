@@ -20,7 +20,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプト
-PROMPT="@%n%F{green} %~ %f
+PROMPT="@%n%{${fg[green]}%}[%~]%{$reset_color%}
 # "
 
 # 単語の区切り文字を指定する
@@ -55,16 +55,17 @@ zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 # vcs_info
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
-setopt prompt_subst
+#setopt prompt_subst
 
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}+%f"
-zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}*%f"
+zstyle ':vcs_info:git:*' stagedstr "%F{blue}+"
+zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}*"
+zstyle ':vcs_info:git:*' confilizt
 zstyle ':vcs_info:*' formats '%F{green}%c%u[%b]%f'
 zstyle ':vcs_info:*' actionformats '[%b|%F{red}%a%f]'
 function _vsc_precmd() {
   LANG=en_US.UTF-8 vcs_info
-	RPROMPT="%F{green}${vcs_info_msg_0_}%f"
+	RPROMPT="${vcs_info_msg_0_}"
 }
 add-zsh-hook precmd _vsc_precmd
 
@@ -79,7 +80,7 @@ function peco-select-history() {
     fi
     BUFFER=$(\history -n 1 | \
         eval $tac | \
-        peco --query "$LBUFFER")
+        peco --layout=bottom-up --query "$LBUFFER")
     CURSOR=$#BUFFER
 }
 zle -N peco-select-history
@@ -88,7 +89,7 @@ bindkey '^r' peco-select-history
 function peco-git-recent-branches () {
     local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
         perl -pne 's{^refs/heads/}{}' | \
-        peco)
+        peco --layout=bottom-up)
     if [ -n "$selected_branch" ]; then
         BUFFER="git checkout ${selected_branch}"
         zle accept-line
@@ -194,6 +195,8 @@ elif which putclip >/dev/null 2>&1 ; then
     # Cygwin
     alias -g C='| putclip'
 fi
+
+
 
 ########################################
 # OS 別の設定

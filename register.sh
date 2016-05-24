@@ -12,4 +12,4 @@ if [ ! -e "$HOME/.git-prompt.sh" ]; then
 	curl --insecure "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh" > ~/.git-prompt.sh
 fi
 
-source $HOME/.bash_profile
+#source $HOME/.bash_profile

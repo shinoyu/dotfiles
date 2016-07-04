@@ -205,6 +205,8 @@ case ${OSTYPE} in
         #Mac用の設定
         export CLICOLOR=1
         alias ls='ls -G -F'
+        bindkey '^[[H' beginning-of-line
+        bindkey '^[[F' end-of-line
         ;;
     linux*)
         #Linux用の設定

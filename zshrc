@@ -6,8 +6,8 @@ export LANG=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
 export GOPATH="$HOME/_/go/third-party:$HOME/_/go/project"
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:$HOME/Library/Android/sdk/platfo
-rm-tools:$PATH"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$PATH"
+
 eval "$(rbenv init - zsh)"
 
 # 色を使用出来るようにする
@@ -138,7 +138,7 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 
 # 高機能なワイルドカード展開を使用する
-setopt extended_glob
+# setopt extended_glob
 
 ########################################
 # キーバインド
@@ -151,7 +151,6 @@ setopt extended_glob
 alias la='ls -a'
 alias ll='ls -alG'
 alias search='find . -name'
-alias op='open -a '
 alias v='vim'
 alias shell.rc.edit='vim ~/.zshrc'
 alias shell.rc.reload="source ~/.zshrc"
@@ -160,7 +159,6 @@ alias shell.rc.reload="source ~/.zshrc"
 alias sudo='sudo '
 
 # For git
-alias b_e='bundle exec'
 alias g_s='git status -sb'
 alias g_cm='git commit'
 alias g_cm_r='git commit --amend'
@@ -180,6 +178,19 @@ alias g_ch_t='git checkout --theirs'
 alias g_ch_o='git checkout --own'
 alias g_s_u='git submodule update'
 alias g_c_u='git symbolic-ref --short HEAD | xargs git pull origin'
+alias g_cb='git symbolic-ref --short HEAD'
+alias be='bundle exec'
+
+function input_current_branch() {
+	BUFFER+=$(eval "git symbolic-ref --short HEAD")
+	CURSOR=$#BUFFER
+}
+zle -N input_current_branch
+bindkey '^gb' input_current_branch
+
+
+
+# key bind
 
 # グローバルエイリアス
 
@@ -205,6 +216,7 @@ case ${OSTYPE} in
         #Mac用の設定
         export CLICOLOR=1
         alias ls='ls -G -F'
+        alias op='open -a '
         bindkey '^[[H' beginning-of-line
         bindkey '^[[F' end-of-line
         ;;

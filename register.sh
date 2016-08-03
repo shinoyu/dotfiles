@@ -6,6 +6,7 @@ ln -f -s ${c_dir}/bash_profile $HOME/.bash_profile
 ln -f -s ${c_dir}/zshrc $HOME/.zshrc
 ln -f -s ${c_dir}/tigrc $HOME/.tigrc
 ln -f -s ${c_dir}/bash_ext $HOME/.bash_ext
+ln -f -s ${c_dir}/vim $HOME/.vim
 
 # import git-prompt
 if [ ! -e "$HOME/.git-prompt.sh" ]; then

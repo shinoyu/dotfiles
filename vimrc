@@ -6,6 +6,10 @@ set nocompatible
 set backspace=indent,eol,start
 syntax on
 set autoread
+let g:molokai_original=1
+let g:rehash256=1
+set background=dark
+
 
 "showing
 set number

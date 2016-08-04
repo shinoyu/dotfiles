@@ -7,8 +7,16 @@ export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
 export GOPATH="$HOME/_/go/third-party:$HOME/_/go/project"
 export PATH="$HOME/.rbenv/bin:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$PATH"
+export EDITOR="vim"
+export PAGER="less"
+export VISUAL="vim"
 
-eval "$(rbenv init - zsh)"
+if type rbenv >/dev/null 2>&1; then
+	eval "$(rbenv init - zsh)"
+fi
+if type direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 
 # 色を使用出来るようにする
 autoload -Uz colors

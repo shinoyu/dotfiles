@@ -17,6 +17,9 @@ fi
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
+if type hub >/dev/null 2>&1; then
+	eval "$(hub alias -s)"
+fi
 
 # 色を使用出来るようにする
 autoload -Uz colors

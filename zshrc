@@ -107,9 +107,21 @@ function peco-git-recent-branches () {
     fi
 }
 zle -N peco-git-recent-branches
-
 bindkey "^g^b" peco-git-recent-branches
 
+
+function peco-find-file() {
+  if git rev-parse 2> /dev/null; then
+    source_files=$(git ls-files)
+  else	
+    source_files=$(find . -type f)
+  fi
+  selected_files=$(echo $source_files | peco --prompt "[find file]" --layout=bottom-up)
+	BUFFER="${BUFFER}$(echo $selected_files | tr '\n' ' ')"
+	CURSOR=$#BUFFER
+}
+zle -N peco-find-file
+bindkey '^q' peco-find-file
 
 ########################################
 # オプション

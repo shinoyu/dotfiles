@@ -95,7 +95,7 @@ function peco-select-history() {
     CURSOR=$#BUFFER
 }
 zle -N peco-select-history
-bindkey '^r' peco-select-history
+bindkey '^h' peco-select-history
 
 function peco-git-recent-branches () {
     local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \

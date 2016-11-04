@@ -5,8 +5,8 @@
 export LANG=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
-export GOPATH="$HOME/_/go/third-party:$HOME/_/go/project"
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$PATH"
+export GOPATH="$HOME/_/go/third-party"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin:$PATH"
 export EDITOR="vim"
 export PAGER="less"
 export VISUAL="vim"

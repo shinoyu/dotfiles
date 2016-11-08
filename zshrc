@@ -230,8 +230,6 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-
-
 ########################################
 # OS 別の設定
 case ${OSTYPE} in
@@ -239,7 +237,6 @@ case ${OSTYPE} in
         #Mac用の設定
         export CLICOLOR=1
         alias ls='ls -G -F'
-        alias op='open -a '
         bindkey '^[[H' beginning-of-line
         bindkey '^[[F' end-of-line
         ;;

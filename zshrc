@@ -26,7 +26,7 @@ autoload -Uz colors
 colors
 
 # ヒストリの設定
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
@@ -145,6 +145,7 @@ setopt auto_cd
 
 # cd したら自動的にpushdする
 setopt auto_pushd
+
 # 重複したディレクトリを追加しない
 setopt pushd_ignore_dups
 
@@ -164,24 +165,25 @@ setopt hist_reduce_blanks
 # setopt extended_glob
 
 ########################################
-# キーバインド
+# key binding.
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 #bindkey '^R' history-incremental-pattern-search-backward
 
 ########################################
-# エイリアス
+# alias
 alias la='ls -a'
 alias ll='ls -alG'
 alias search='find . -name'
 alias v='vim'
-alias shell.rc.edit='vim ~/.zshrc'
-alias shell.rc.reload="source ~/.zshrc"
+alias shell.rc.edit='vim $HOME/.zshrc'
+alias shell.rc.reload="source $HOME/.zshrc"
+alias shell.rc.source_dir="cd $(dirname `readlink $HOME/.zshrc`)"
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
-# For git
+# for git
 alias g_s='git status -sb'
 alias g_cm='git commit'
 alias g_cm_r='git commit --amend'
@@ -211,13 +213,8 @@ function input_current_branch() {
 zle -N input_current_branch
 bindkey '^gb' input_current_branch
 
-
-
-# key bind
-
-# グローバルエイリアス
-
-# C で標準出力をクリップボードにコピーする
+# 
+# Cを付与することで標準出力をクリップボードにコピー
 # mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
 if which pbcopy >/dev/null 2>&1 ; then
     # Mac

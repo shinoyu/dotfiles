@@ -6,19 +6,25 @@ export LANG=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
 export GOPATH="$HOME/_/go/third-party"
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin:$PATH"
+export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin"
+
+
 export EDITOR="vim"
 export PAGER="less"
 export VISUAL="vim"
 
 if type rbenv >/dev/null 2>&1; then
 	eval "$(rbenv init - zsh)"
+	export PATH="$PATH:$HOME/.rbenv/bin"
 fi
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 if type hub >/dev/null 2>&1; then
 	eval "$(hub alias -s)"
+fi
+if type git >/dev/null 2>&1; then
+	export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
 fi
 
 # 色を使用出来るようにする

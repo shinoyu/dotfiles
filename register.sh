@@ -8,6 +8,7 @@ ln -f -s ${c_dir}/zshenv $HOME/.zshenv
 ln -f -s ${c_dir}/tigrc $HOME/.tigrc
 ln -f -s ${c_dir}/bash_ext $HOME/.bash_ext
 ln -f -s ${c_dir}/vim $HOME/.vim
+ln -f -s ${c_dir}/brewfile $HOME/.brewfile
 
 # import git-prompt
 if [ ! -e "$HOME/.git-prompt.sh" ]; then

@@ -1,0 +1,124 @@
+
+# tap repositories and their packages
+
+tap b4b4r07/brionac
+
+tap caskroom/cask
+cask android-file-transfer
+cask android-studio
+cask atom
+cask charles
+cask cyberduck
+cask dotnet
+cask java
+cask karabiner
+cask sequel-pro
+cask vagrant
+
+tap caskroom/fonts
+cask font-consolas-for-powerline
+cask font-migmix-1m
+
+tap caskroom/versions
+
+tap homebrew/bundle
+
+tap homebrew/core
+brew atk
+brew autoconf
+brew automake
+brew bash
+brew cairo
+brew czmq
+brew fontconfig
+brew fontforge
+brew freetype
+brew gd
+brew gdbm
+brew gdk-pixbuf
+brew gettext
+brew git
+brew glib
+brew gnome-icon-theme
+brew go
+brew gobject-introspection
+brew gperftools
+brew graphviz
+brew gsettings-desktop-schemas
+brew gtk+
+brew gtk+3
+brew gtk-mac-integration
+brew gtksourceview
+brew gtksourceview3
+brew harfbuzz
+brew hicolor-icon-theme
+brew hub
+brew icu4c
+brew imagemagick
+brew intltool
+brew jpeg
+brew libepoxy
+brew libevent
+brew libffi
+brew libpng
+brew libsodium
+brew libtiff
+brew libtool
+brew libyaml
+brew mas
+brew memcached
+brew micro
+brew node
+brew nodebrew
+brew openssl
+brew pango
+brew pcre
+brew pcre2
+brew peco
+brew perl
+brew pixman
+brew pkg-config
+brew pssh
+brew py2cairo
+brew pygobject
+brew pygobject3
+brew pygtk
+brew pygtksourceview
+brew python
+brew q
+brew rarian
+brew rbenv
+brew rbenv-gemset
+brew readline
+brew redis
+brew rename
+brew ruby
+brew ruby-build
+brew shared-mime-info
+brew sqlite
+brew tig
+brew vim
+brew webp
+brew xz
+brew zeromq
+brew zplug
+brew zsh
+brew zsh-completions
+
+tap homebrew/versions
+brew mariadb100
+
+tap homebrew/x11
+
+tap rcmdnk/file
+brew brew-file
+
+tap sanemat/font
+brew ricty
+
+tap tkengo/highway
+brew highway
+
+# App Store applications
+appstore 540348655 Monosnap (3.3.0)
+appstore 803453959 Slack (2.3.4)

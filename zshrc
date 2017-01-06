@@ -7,6 +7,7 @@ export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
 export GOPATH="$HOME/_/go/third-party"
 export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin"
+export HOMEBREW_BREWFILE="$HOME/.brewfile"
 
 
 export EDITOR="vim"
@@ -25,6 +26,9 @@ if type hub >/dev/null 2>&1; then
 fi
 if type git >/dev/null 2>&1; then
 	export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
+fi
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
 fi
 
 # 色を使用出来るようにする

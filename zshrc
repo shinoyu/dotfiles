@@ -9,11 +9,11 @@ export GOPATH="$HOME/_/go/third-party"
 export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin"
 export HOMEBREW_BREWFILE="$HOME/.brewfile"
 
-
 export EDITOR="vim"
 export PAGER="less"
 export VISUAL="vim"
 
+# ツール初期化、環境変数設定
 if type rbenv >/dev/null 2>&1; then
 	eval "$(rbenv init - zsh)"
 	export PATH="$PATH:$HOME/.rbenv/bin"
@@ -27,6 +27,9 @@ fi
 if type git >/dev/null 2>&1; then
 	export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
 fi
+
+# その他変数
+local snippets_file_path=$HOME/.snippets
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -212,6 +215,7 @@ alias g_ch_o='git checkout --own'
 alias g_s_u='git submodule update'
 alias g_c_u='git symbolic-ref --short HEAD | xargs git pull origin'
 alias g_cb='git symbolic-ref --short HEAD'
+alias g_v='git browse'
 alias be='bundle exec'
 
 function input_current_branch() {
@@ -220,6 +224,31 @@ function input_current_branch() {
 }
 zle -N input_current_branch
 bindkey '^gb' input_current_branch
+
+#### snippet control.
+#
+
+function peco-snippets() {
+	if [ ! -e $snippets_file_path ]; then
+		touch $fpath
+	fi
+	BUFFER=$(grep -v "^#" $snippets_file_path | peco --query "$LBUFFER" --prompt "[find snippets.]" --layout=bottom-up )
+	CURSOR=$#BUFFER
+	zle clear-screen
+}
+zle -N peco-snippets
+bindkey '^sf' peco-snippets
+
+function peco-snippets-add() {
+	echo $BUFFER >> $snippets_file_path
+	zle -M "snippets entry! $BUFFER"
+}
+zle -N peco-snippets-add
+bindkey '^si' peco-snippets-add
+alias snip.edit="vim $snippets_file_path"
+
+#
+####
 
 # 
 # Cを付与することで標準出力をクリップボードにコピー

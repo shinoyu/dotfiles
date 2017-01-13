@@ -8,6 +8,7 @@ cask android-file-transfer
 cask android-studio
 cask atom
 cask charles
+cask clipy
 cask cyberduck
 cask dotnet
 cask java
@@ -29,6 +30,7 @@ brew autoconf
 brew automake
 brew bash
 brew cairo
+brew colordiff
 brew czmq
 brew fontconfig
 brew fontforge

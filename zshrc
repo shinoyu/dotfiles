@@ -273,9 +273,6 @@ case ${OSTYPE} in
         alias ls='ls -G -F'
         bindkey '^[[H' beginning-of-line
         bindkey '^[[F' end-of-line
-				if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  				source $(brew --prefix)/etc/brew-wrap
-				fi
         ;;
     linux*)
         #Linux用の設定

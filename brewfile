@@ -1,24 +1,13 @@
 
 # tap repositories and their packages
 
-tap b4b4r07/brionac
-
 tap caskroom/cask
 cask android-file-transfer
 cask android-studio
-cask atom
-cask charles
 cask clipy
-cask cyberduck
-cask dotnet
-cask java
-cask karabiner
-cask sequel-pro
 cask vagrant
 
 tap caskroom/fonts
-cask font-consolas-for-powerline
-cask font-migmix-1m
 
 tap caskroom/versions
 
@@ -92,12 +81,8 @@ brew rarian
 brew rbenv
 brew rbenv-gemset
 brew readline
-brew redis
 brew rename
-brew ruby
-brew ruby-build
 brew shared-mime-info
-brew sqlite
 brew tig
 brew vim
 brew webp
@@ -108,7 +93,6 @@ brew zsh
 brew zsh-completions
 
 tap homebrew/versions
-brew mariadb100
 
 tap homebrew/x11
 
@@ -116,11 +100,14 @@ tap rcmdnk/file
 brew brew-file
 
 tap sanemat/font
-brew ricty
 
 tap tkengo/highway
+
+# Other Homebrew packages
+brew ricty
 brew highway
 
-# App Store applications
-appstore 540348655 Monosnap (3.3.0)
-appstore 803453959 Slack (2.3.4)
+# Cask applications
+cask font-consolas-for-powerline
+cask font-migmix-1m
+

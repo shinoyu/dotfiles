@@ -20,8 +20,11 @@ set mouse-scroll = 6
 bind generic G none
 bind generic g move-first-line
 bind generic G move-last-line
+bind generic P @sh -c 'hub browse -- commit/%(commit)'
+
 
 bind status <Ctrl-D> !git difftool --dir-diff
 bind branch n !git checkout -b %(prompt) %(branch)
 bind main <Ctrl-P> !git pull origin %(prompt)
+
 

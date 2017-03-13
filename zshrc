@@ -277,6 +277,8 @@ case ${OSTYPE} in
     linux*)
         #Linux用の設定
         alias ls='ls -F --color=auto'
+        bindkey '^[[1;5D' beginning-of-line
+        bindkey '^[[1;5C' end-of-line
         ;;
 esac
 

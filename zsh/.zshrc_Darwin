@@ -1,0 +1,12 @@
+export CLICOLOR=1
+export HOMEBREW_BREWFILE="$HOME/.brewfile"
+
+# 
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
+# alias
+alias ls='ls -G -F'
+
+# kwy sttings
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line

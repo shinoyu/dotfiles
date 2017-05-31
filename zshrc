@@ -191,7 +191,7 @@ alias search='find . -name'
 alias v='vim'
 alias shell.rc.edit='vim $HOME/.zshrc'
 alias shell.rc.reload="source $HOME/.zshrc"
-alias shell.rc.source_dir="cd $(dirname `readlink $HOME/.zshrc`)"
+alias shell.rc.dir="cd $(dirname `readlink $HOME/.zshrc`)"
 alias shell.env.edit='vim $HOME/.zshenv'
 
 # sudo の後のコマンドでエイリアスを有効にする

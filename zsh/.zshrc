@@ -7,7 +7,6 @@ export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
 export GOPATH="$HOME/_/go/third-party"
 export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin"
-export HOMEBREW_BREWFILE="$HOME/.brewfile"
 
 export EDITOR="vim"
 export PAGER="less"
@@ -58,9 +57,6 @@ zstyle ':zle:*' word-style unspecified
 ########################################
 # 補完
 # 補完機能を有効にする
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -Uz compinit
-compinit
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -269,18 +265,6 @@ fi
 
 ########################################
 # OS 別の設定
-case ${OSTYPE} in
-    darwin*)
-        #Mac用の設定
-        export CLICOLOR=1
-        alias ls='ls -G -F'
-        bindkey '^[[H' beginning-of-line
-        bindkey '^[[F' end-of-line
-        ;;
-    linux*)
-        #Linux用の設定
-        alias ls='ls -F --color=auto'
-        ;;
-esac
+[ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname` && echo "loaded .zshrc_`uname`"
 
 # vim:set ft=zsh:

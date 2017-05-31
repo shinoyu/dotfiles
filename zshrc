@@ -27,6 +27,9 @@ fi
 if type git >/dev/null 2>&1; then
 	export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
 fi
+if type nodebrew >/dev/null 2>&1; then
+	export PATH="$PATH:$HOME/.nodebrew/current/bin:"
+fi
 
 # その他変数
 local snippets_file_path=$HOME/.snippets

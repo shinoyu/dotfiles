@@ -267,4 +267,8 @@ fi
 # OS 別の設定
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname` && echo "loaded .zshrc_`uname`"
 
+uname -a | grep "Microsoft" | grep "Linux">/dev/null && if [ $? -eq 0 ]; then
+	[ -f $ZDOTDIR/.zshrc_Windows ] && . $ZDOTDIR/.zshrc_Windows && echo "loaded .zhrc_windows"
+fi
+
 # vim:set ft=zsh:

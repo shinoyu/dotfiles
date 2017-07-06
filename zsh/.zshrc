@@ -34,8 +34,7 @@ fi
 local snippets_file_path=$HOME/.snippets
 
 # 色を使用出来るようにする
-autoload -Uz colors
-colors
+autoload -Uz colors;colors
 
 # ヒストリの設定
 HISTFILE=$HOME/.zsh_history
@@ -47,8 +46,7 @@ PROMPT="@%n%{${fg[green]}%}[%~]%{$reset_color%}
 # "
 
 # 単語の区切り文字を指定する
-autoload -Uz select-word-style
-select-word-style default
+autoload -Uz select-word-style;select-word-style default
 # ここで指定した文字は単語区切りとみなされる
 # / も区切りと扱うので、^W でディレクトリ１つ分を削除できる
 zstyle ':zle:*' word-chars " /=;@:{},|"
@@ -229,7 +227,7 @@ bindkey '^gb' input_current_branch
 
 function peco-snippets() {
 	if [ ! -e $snippets_file_path ]; then
-		touch $fpath
+		touch $snippets_file_path
 	fi
 	BUFFER=$(grep -v "^#" $snippets_file_path | peco --query "$LBUFFER" --prompt "[find snippets.]" --layout=bottom-up )
 	CURSOR=$#BUFFER
@@ -266,5 +264,9 @@ fi
 ########################################
 # OS 別の設定
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname` && echo "loaded .zshrc_`uname`"
+
+uname -a | grep "Microsoft" | grep "Linux">/dev/null && if [ $? -eq 0 ]; then
+	[ -f $ZDOTDIR/.zshrc_Windows ] && . $ZDOTDIR/.zshrc_Windows && echo "loaded .zhrc_windows"
+fi
 
 # vim:set ft=zsh:

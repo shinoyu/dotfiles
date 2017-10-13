@@ -1,0 +1,6 @@
+# ls
+if which exa > /dev/null; then
+	alias ll='exa -lbgHhiam'
+else
+	alias ll='ls -alG'
+fi

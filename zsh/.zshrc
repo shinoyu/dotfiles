@@ -269,4 +269,10 @@ uname -a | grep "Microsoft" | grep "Linux">/dev/null && if [ $? -eq 0 ]; then
 	[ -f $ZDOTDIR/.zshrc_Windows ] && . $ZDOTDIR/.zshrc_Windows && echo "loaded .zhrc_windows"
 fi
 
+zsh_alias_dir="$ZDOTDIR/aliases"
+echo $zsh_alias_dir
+# load alias.
+[ -f $zsh_alias_dir/.zsh_alias ] && . $zsh_alias_dir/.zsh_alias && echo "loaded common zsh_alias."
+
+
 # vim:set ft=zsh:

@@ -259,23 +259,27 @@ fi
 
 ########################################
 # OS 別の設定
-test -f $ZDOTDIR/.zshrc_`uname` && . $ZDOTDIR/.zshrc_`uname` && echo "loaded .zshrc_`uname`"
+zsh_os_file="$ZDOTDIR/.zshrc_$L_OSTYPE"
+test -f $zsh_os_file && . $zsh_os_file && echo "loaded $zsh_os_file"
 
-# WindowsLinux固有の設定
-uname -a | grep "Microsoft" | grep "Linux">/dev/null && if [ $? -eq 0 ]; then
-	test -f $ZDOTDIR/.zshrc_Linux_Windows && . $ZDOTDIR/.zshrc_Linux_Windows && echo "loaded .zshrc_linux_windows"
-fi
+# load args
+zsh_args_file="$ZDOTDIR/args/.zsh_args"
+test -f $zsh_args_file && . $zsh_args_file && echo "loaded $zsh_args_file"
 
-# 端末固有の設定
-if test -f $ZDOTDIR/.zshrc_Machine; then
-	. $ZDOTDIR/.zshrc_Machine && echo "loaded .zshrc machine"
-else
-	touch $ZDOTDIR/.zshrc_Machine && echo "create .zshrc_machine for machine"
-fi
 
 # load alias.
-zsh_alias_dir="$ZDOTDIR/aliases"
-test -f $zsh_alias_dir/.zsh_alias && . $zsh_alias_dir/.zsh_alias && echo "loaded common zsh_alias."
+zsh_alias_file="$ZDOTDIR/aliases/.zsh_alias"
+test -f $zsh_alias_file && . $zsh_alias_file && echo "loaded $zsh_alias_file"
+
+
+
+# 端末固有の設定
+zsh_machine_file="$ZDOTDIR/.zshrc_Machine"
+if test -f $zsh_machine_file; then
+	. $zsh_machine_file && echo "loaded $zsh_machine_file"
+else
+	touch $zsh_machine_file && echo "create $zsh_machine_file"
+fi
 
 
 # vim:set ft=zsh:

@@ -11,7 +11,7 @@ ln -f -s ${c_dir}/vimrc $HOME/.vimrc
 ln -f -s ${c_dir}/brewfile $HOME/.brewfile
 
 # install homebre
-if [ $L_OSTYPE = "Darwin" ]; then 
+if [ $L_OSTYPE="Darwin" ]; then 
  type brew >/dev/null 2>&1 || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 

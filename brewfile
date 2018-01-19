@@ -139,11 +139,7 @@ cask virtualbox
 tap caskroom/fonts
 cask font-consolas-for-powerline
 cask font-migmix-1m
-
 tap caskroom/versions
-
-tap b4b4r07/brionac
-
 tap caskformula/caskformula
 brew inkscape
 

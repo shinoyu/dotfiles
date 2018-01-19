@@ -1,26 +1,24 @@
 
 # tap repositories and their packages
 
-tap caskroom/cask
-cask android-file-transfer
-cask android-studio
-cask clipy
-cask vagrant
-
-tap caskroom/fonts
-
-tap caskroom/versions
-
-tap homebrew/bundle
-
 tap homebrew/core
+brew adwaita-icon-theme
 brew atk
+brew atkmm
 brew autoconf
 brew automake
 brew bash
+brew bdw-gc
+brew boost
+brew boost-build
 brew cairo
+brew cairomm
+brew cmake
 brew colordiff
+brew cowsay
 brew czmq
+brew direnv
+brew exa
 brew fontconfig
 brew fontforge
 brew freetype
@@ -30,15 +28,21 @@ brew gdk-pixbuf
 brew gettext
 brew git
 brew glib
-brew gnome-icon-theme
+brew glib-networking
+brew glibmm
+brew gmp
+brew gnutls
 brew go
 brew gobject-introspection
 brew gperftools
+brew graphite2
 brew graphviz
 brew gsettings-desktop-schemas
+brew gsl
 brew gtk+
 brew gtk+3
 brew gtk-mac-integration
+brew gtkmm
 brew gtksourceview
 brew gtksourceview3
 brew harfbuzz
@@ -52,23 +56,37 @@ brew libepoxy
 brew libevent
 brew libffi
 brew libpng
+brew libsigc++
 brew libsodium
+brew libsoup
+brew libtasn1
 brew libtiff
 brew libtool
+brew libunistring
 brew libyaml
+brew little-cms
+brew little-cms2
+brew mariadb@10.0
 brew mas
 brew memcached
 brew micro
-brew node
+brew nettle
 brew nodebrew
+brew openjpeg
 brew openssl
+brew p11-kit
 brew pango
+brew pangomm
 brew pcre
 brew pcre2
 brew peco
 brew perl
 brew pixman
 brew pkg-config
+brew plantuml
+brew poppler
+brew popt
+brew potrace
 brew pssh
 brew py2cairo
 brew pygobject
@@ -81,9 +99,15 @@ brew rarian
 brew rbenv
 brew rbenv-gemset
 brew readline
+brew redis
 brew rename
+brew ruby
+brew ruby-build
 brew shared-mime-info
+brew sqlite
+brew the_silver_searcher
 brew tig
+brew vala
 brew vim
 brew webp
 brew xz
@@ -92,22 +116,54 @@ brew zplug
 brew zsh
 brew zsh-completions
 
+tap homebrew/bundle
+
 tap homebrew/versions
 
 tap homebrew/x11
+
+tap caskroom/cask
+cask android-file-transfer
+cask android-studio
+cask atom
+cask charles
+cask clipy
+cask cyberduck
+cask dash
+cask dotnet
+cask java
+cask karabiner
+cask sequel-pro
+cask virtualbox
+
+tap caskroom/fonts
+cask font-consolas-for-powerline
+cask font-migmix-1m
+
+tap caskroom/versions
+
+tap b4b4r07/brionac
+
+tap caskformula/caskformula
+brew inkscape
+
+tap mscharley/homebrew
 
 tap rcmdnk/file
 brew brew-file
 
 tap sanemat/font
+brew ricty
 
 tap tkengo/highway
-
-# Other Homebrew packages
-brew ricty
 brew highway
 
-# Cask applications
-cask font-consolas-for-powerline
-cask font-migmix-1m
-
+# App Store applications
+appstore 682658836 GarageBand (10.2.0)
+appstore 408981434 iMovie (10.1.6)
+appstore 1127487414 Install macOS Sierra (12.0.49)
+appstore 409183694 Keynote (6.6.2)
+appstore 540348655 Monosnap (3.4.9)
+appstore 409203825 Numbers (3.6.2)
+appstore 409201541 Pages (5.6.2)
+appstore 803453959 Slack (2.3.1)

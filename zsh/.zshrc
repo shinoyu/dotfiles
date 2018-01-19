@@ -259,16 +259,23 @@ fi
 
 ########################################
 # OS 別の設定
-[ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname` && echo "loaded .zshrc_`uname`"
+test -f $ZDOTDIR/.zshrc_`uname` && . $ZDOTDIR/.zshrc_`uname` && echo "loaded .zshrc_`uname`"
 
+# WindowsLinux固有の設定
 uname -a | grep "Microsoft" | grep "Linux">/dev/null && if [ $? -eq 0 ]; then
-	[ -f $ZDOTDIR/.zshrc_Windows ] && . $ZDOTDIR/.zshrc_Windows && echo "loaded .zhrc_windows"
+	test -f $ZDOTDIR/.zshrc_Linux_Windows && . $ZDOTDIR/.zshrc_Linux_Windows && echo "loaded .zshrc_linux_windows"
 fi
 
-zsh_alias_dir="$ZDOTDIR/aliases"
-echo $zsh_alias_dir
+# 端末固有の設定
+if test -f $ZDOTDIR/.zshrc_Machine; then
+	. $ZDOTDIR/.zshrc_Machine && echo "loaded .zshrc machine"
+else
+	touch $ZDOTDIR/.zshrc_Machine && echo "create .zshrc_machine for machine"
+fi
+
 # load alias.
-[ -f $zsh_alias_dir/.zsh_alias ] && . $zsh_alias_dir/.zsh_alias && echo "loaded common zsh_alias."
+zsh_alias_dir="$ZDOTDIR/aliases"
+test -f $zsh_alias_dir/.zsh_alias && . $zsh_alias_dir/.zsh_alias && echo "loaded common zsh_alias."
 
 
 # vim:set ft=zsh:

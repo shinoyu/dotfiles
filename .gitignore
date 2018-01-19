@@ -1,3 +1,5 @@
 vim/.netrwhist
 .zcompdump
 zsh/.zshrc_machine
+**/secret
+**/.export

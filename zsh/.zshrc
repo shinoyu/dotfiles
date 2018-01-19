@@ -12,6 +12,21 @@ export EDITOR="vim"
 export PAGER="less"
 export VISUAL="vim"
 
+# OS 別の設定
+local load_files=(".zshrc_$L_OSTYPE" "args/.zsh_args" "aliases/.zsh_alias" "functions/.zsh_functions")
+
+for v in ${load_files}; do
+	local load_file="$ZDOTDIR/${v}"
+	test -f $load_file && . $load_file && echo "loaded $load_file"
+done
+
+local zsh_machine_file="$ZDOTDIR/.zshrc_Machine"
+if test -f $zsh_machine_file; then
+	. $zsh_machine_file && echo "loaded $zsh_machine_file"
+else
+	touch $zsh_machine_file && echo "create $zsh_machine_file"
+fi
+
 # ツール初期化、環境変数設定
 if type rbenv >/dev/null 2>&1; then
 	eval "$(rbenv init - zsh)"
@@ -258,28 +273,6 @@ elif which putclip >/dev/null 2>&1 ; then
 fi
 
 ########################################
-# OS 別の設定
-zsh_os_file="$ZDOTDIR/.zshrc_$L_OSTYPE"
-test -f $zsh_os_file && . $zsh_os_file && echo "loaded $zsh_os_file"
-
-# load args
-zsh_args_file="$ZDOTDIR/args/.zsh_args"
-test -f $zsh_args_file && . $zsh_args_file && echo "loaded $zsh_args_file"
-
-
-# load alias.
-zsh_alias_file="$ZDOTDIR/aliases/.zsh_alias"
-test -f $zsh_alias_file && . $zsh_alias_file && echo "loaded $zsh_alias_file"
-
-
-
-# 端末固有の設定
-zsh_machine_file="$ZDOTDIR/.zshrc_Machine"
-if test -f $zsh_machine_file; then
-	. $zsh_machine_file && echo "loaded $zsh_machine_file"
-else
-	touch $zsh_machine_file && echo "create $zsh_machine_file"
-fi
 
 
 # vim:set ft=zsh:

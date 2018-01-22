@@ -42,7 +42,7 @@ fi
 
 echo "start archive...."
 
-zip -P "$_pass" -r export.zip .export/**
+zip -q -P "$_pass" -r export.zip .export/**
 
 echo "finish!"
 

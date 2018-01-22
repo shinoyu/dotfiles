@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 c_dir=$(cd $(dirname $0) && pwd)
 
 export_dir="$c_dir/.export"
@@ -24,8 +24,11 @@ if [ $L_OSTYPE="Darwin" ]; then
 
 	# dash
 	cp -f "$HOME/Library/Application Support/Dash/library.dash" "$export_dir/library.dash"
-
 fi
+
+# documents
+document_path="$MY_DOC_ROOT"
+test -d $document_path && cp -r $document_path "$secret_dir/"
 
 # packaging
 echo "input archive password."

@@ -248,6 +248,9 @@ zle -N peco-snippets
 bindkey '^sf' peco-snippets
 
 function peco-snippets-add() {
+	if [ ! -e $snippets_file_path ]; then
+		touch $snippets_file_path
+	fi
 	echo $BUFFER >> $snippets_file_path
 	zle -M "snippets entry! $BUFFER"
 }

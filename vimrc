@@ -10,6 +10,8 @@ let g:molokai_original=1
 let g:rehash256=1
 set background=dark
 
+set backupdir=~/.vim/tmp
+set directory=~/.vim/tmp
 
 "showing
 set number

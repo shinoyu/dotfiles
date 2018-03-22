@@ -9,6 +9,7 @@ ln -f -s ${c_dir}/bash_ext $HOME/.bash_ext
 ln -f -s ${c_dir}/vim $HOME/.vim
 ln -f -s ${c_dir}/vimrc $HOME/.vimrc
 ln -f -s ${c_dir}/brewfile $HOME/.brewfile
+ln -sf  ${c_dir}/gitignore $HOME/.gitignore
 
 # install homebre
 if [ $L_OSTYPE="Darwin" ]; then 

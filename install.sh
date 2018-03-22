@@ -1,16 +1,17 @@
 c_dir=$(pwd)
+configs_dir_path="$c_dir/configs"
 
 # link to user dir.
-ln -f -s ${c_dir}/zshenv $HOME/.zshenv
-ln -sfnv ${c_dir}/zsh $HOME/.zsh
-ln -f -s ${c_dir}/tigrc $HOME/.tigrc
-ln -f -s ${c_dir}/bash_ext $HOME/.bash_ext
-ln -f -s ${c_dir}/vim $HOME/.vim
-ln -f -s ${c_dir}/vimrc $HOME/.vimrc
-ln -f -s ${c_dir}/brewfile $HOME/.brewfile
-ln -sf  ${c_dir}/gitignore $HOME/.gitignore
+ln -f -s ${configs_dir_path}/zshenv $HOME/.zshenv
+ln -sfnv ${configs_dir_path}/zsh $HOME/.zsh
+ln -f -s ${configs_dir_path}/tigrc $HOME/.tigrc
+ln -f -s ${configs_dir_path}/bash_ext $HOME/.bash_ext
+ln -f -s ${configs_dir_path}/vim $HOME/.vim
+ln -f -s ${configs_dir_path}/vimrc $HOME/.vimrc
+ln -f -s ${configs_dir_path}/brewfile $HOME/.brewfile
+ln -sf   ${configs_dir_path}/gitignore $HOME/.gitignore
 
-# install homebre
+# install homebrew
 if [ $L_OSTYPE="Darwin" ]; then 
  type brew >/dev/null 2>&1 || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi

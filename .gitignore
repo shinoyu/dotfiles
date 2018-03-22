@@ -1,6 +1,6 @@
 vim/.netrwhist
 .zcompdump
-zsh/.zshrc_machine
+**/zsh/.zshrc_Machine
 **/secret
 **/.export
 **/export.zip

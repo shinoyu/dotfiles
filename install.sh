@@ -1,7 +1,6 @@
 c_dir=$(pwd)
 
 # link to user dir.
-ln -f -s ${c_dir}/bash_profile $HOME/.bash_profile
 ln -f -s ${c_dir}/zshenv $HOME/.zshenv
 ln -sfnv ${c_dir}/zsh $HOME/.zsh
 ln -f -s ${c_dir}/tigrc $HOME/.tigrc

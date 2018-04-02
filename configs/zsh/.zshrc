@@ -6,7 +6,7 @@ export LANG=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
 export GOPATH="$HOME/_/go/third-party"
-export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin"
+export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin:$HOME/bin"
 
 export EDITOR="vim"
 export PAGER="less"
@@ -47,6 +47,7 @@ fi
 
 # その他変数
 local snippets_file_path=$HOME/.snippets
+
 
 # 色を使用出来るようにする
 autoload -Uz colors;colors

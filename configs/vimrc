@@ -36,11 +36,15 @@ set nostartofline "temp move match braches
 
 "color
 set t_Co=256
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
 
 "exntends
 set clipboard=unnamed
 
-"keyymap"
+"keymap"
 
 "keymap-tab-control http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca"
 nnoremap s <Nop>
@@ -66,3 +70,14 @@ nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
+
+"functions"
+set diffexpr=GitDiffFormat()
+function GitDiffFormat()
+	let opt = ""
+	if &diffopt =~ "iwhite"
+		let opt = opt . "-b "
+	endif
+	silent execute "!git-diff-format " . opt . v:fname_in . " " . v:fname_new, " > " . v:fname_out
+	redraw!
+endfunction

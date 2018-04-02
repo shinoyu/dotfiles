@@ -10,6 +10,10 @@ ln -sfn ${configs_dir_path}/vim $HOME/.vim
 ln -sf  ${configs_dir_path}/vimrc $HOME/.vimrc
 ln -sf  ${configs_dir_path}/brewfile $HOME/.brewfile
 ln -sf  ${configs_dir_path}/gitignore $HOME/.gitignore
+ln -sf  ${configs_dir_path}/gitconfig $HOME/.gitconfig
+
+# link to user_bin.
+ln -sfn ${c_dir}/tool/bin $HOME/bin
 
 # install homebrew
 if [ $L_OSTYPE="Darwin" ]; then 

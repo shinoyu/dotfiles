@@ -1,8 +1,8 @@
 [diff]
-	tool = vimdiff
-	algorithm = histogram
+  tool = vimdiff
+  algorithm = histogram
 [merge]
-	tool = vimdiff
-	algorithm = histogram
+  tool = vimdiff
+  algorithm = histogram
 [mergetool]
-	keepBackup = false
+  keepBackup = false

@@ -72,7 +72,7 @@ nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
 
 "functions"
-set diffexpr=GitDiffFormat()
+"set diffexpr=GitDiffFormat()"
 function GitDiffFormat()
 	let opt = ""
 	if &diffopt =~ "iwhite"

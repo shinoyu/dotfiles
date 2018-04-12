@@ -16,8 +16,8 @@ ln -sf  ${configs_dir_path}/gitconfig.mine $HOME/.gitconfig.mine
 if [ ! -e "$HOME/.gitconfig" ]; then
 	touch $HOME/.gitconfig
 	cat <<EOF >> "$HOME/.gitconfig"
-	[include]
-		path = "$HOME/.gitconfig.mine"
+[include]
+  path = "$HOME/.gitconfig.mine"
 EOF
 fi
 

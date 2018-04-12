@@ -193,6 +193,8 @@ setopt hist_no_store
 alias search='find . -name'
 alias history='history -t "%Y-%m-%d %a %H:%M:%S"'
 alias v='vim'
+alias ...="cd ../../"
+alias ....="cd ../../../"
 alias shell.rc.edit='vim $HOME/.zsh/.zshrc'
 alias shell.rc.reload="source $HOME/.zsh/.zshrc"
 alias shell.rc.dir="cd $(dirname `readlink $HOME/.zsh`)"

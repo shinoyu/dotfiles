@@ -10,7 +10,17 @@ ln -sfn ${configs_dir_path}/vim $HOME/.vim
 ln -sf  ${configs_dir_path}/vimrc $HOME/.vimrc
 ln -sf  ${configs_dir_path}/brewfile $HOME/.brewfile
 ln -sf  ${configs_dir_path}/gitignore $HOME/.gitignore
-ln -sf  ${configs_dir_path}/gitconfig $HOME/.gitconfig
+ln -sf  ${configs_dir_path}/gitconfig.mine $HOME/.gitconfig.mine
+
+# init gitconfigs
+if [ ! -e "$HOME/.gitconfig" ]; then
+	touch $HOME/.gitconfig
+	cat <<EOF >> "$HOME/.gitconfig"
+	[include]
+		path = "$HOME/.gitconfig.mine"
+EOF
+fi
+
 
 # link to user_bin.
 ln -sfn ${c_dir}/tool/bin $HOME/bin

@@ -11,5 +11,5 @@ Taka a look [github help](https://help.github.com/articles/generating-a-new-ssh-
 _Git is necessary._
 
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/shinoyu/dotfiles/master/init.sh) | sh"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/your/dotfiles/master/init.sh) | sh"
 ```

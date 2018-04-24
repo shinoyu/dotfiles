@@ -9,6 +9,8 @@ set autoread
 let g:molokai_original=1
 let g:rehash256=1
 set background=dark
+set mouse=a
+set ttymouse=xterm2
 
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp

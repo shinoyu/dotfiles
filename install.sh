@@ -27,7 +27,7 @@ fi
 ln -sfn ${c_dir}/tool/bin $HOME/bin
 
 # install homebrew
-if [ $L_OSTYPE = "Darwin" ]; then 
+if [ $L_OSTYPE="Darwin" ]; then 
  type brew >/dev/null 2>&1 || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 

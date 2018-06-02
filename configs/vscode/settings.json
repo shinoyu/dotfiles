@@ -1,0 +1,35 @@
+{
+    "editor.tabSize": 2,
+    "editor.rulers": [
+        80,120
+    ],
+    "workbench.activityBar.visible": true,
+    "workbench.iconTheme": "file-icons",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorCustomizations" : {
+		"editor.lineHighlightBackground": "#08f6",
+		"editor.lineHighlightBorder": false,
+        "editor.findMatchHighlightBackground": "#7e7e2c",
+    },
+    "editor.renderLineHighlight": "line",
+    "editor.minimap.enabled": false,
+    "explorer.confirmDelete": false,
+    "extensions.autoUpdate": true,
+    "editor.insertSpaces": false,
+    "editor.roundedSelection": false,
+    "editor.emptySelectionClipboard": false,
+    "editor.find.autoFindInSelection": true,
+    "editor.autoClosingBrackets": false,
+    "editor.autoIndent": false,
+    "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+    "editor.renderControlCharacters": true,
+    "search.exclude": {
+        "**/tmp": true,
+        "**/.tmp": true
+    },
+
+    "ruby.codeCompletion": "solargraph",
+    "solargraph.commandPath": "/usr/local/bin/solargraph",
+    //"ruby.rctComplete.commandPath": "/usr/local/bin/rct-complete",
+    "csv-preview.separator": "\t",
+}

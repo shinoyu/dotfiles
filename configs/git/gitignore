@@ -2,6 +2,6 @@
 *.bak
 *.swp
 */**/.DS_Store
-
+**/git-worktrees/
 .solargraph.yml
 .vscode/

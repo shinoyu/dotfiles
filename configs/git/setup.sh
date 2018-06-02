@@ -1,8 +1,18 @@
 DIR=$(cd $(dirname $0); pwd)
 
 if type git >/dev/null 2>&1; then
-	ln -sfnv $DIR/.gitignore $HOME/.gitignore
-	ln -sfnv $DIR/.gitattributes $HOME/.gitattributes
+	ln -sfnv $DIR/gitattributes $HOME/.gitattribute
+	ln -sfnv $DIR/gitignore $HOME/.gitignore
+	ln -sfnv $DIR/gitconfig.mine $HOME/.gitconfig.mine
+
+# init gitconfigs
+if [ ! -e "$HOME/.gitconfig" ]; then
+	touch $HOME/.gitconfig
+	cat <<EOF >> "$HOME/.gitconfig"
+[include]
+  path = $HOME/.gitconfig.mine
+EOF
+fi
 
 	git config --global merge.tool vimdiff2
 	git config --global mergetool.keepbackup false

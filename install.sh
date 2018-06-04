@@ -11,7 +11,7 @@ ln -sf  ${configs_dir_path}/vimrc $HOME/.vimrc
 ln -sf  ${configs_dir_path}/tmux.conf $HOME/.tmux.conf
 ln -sf  ${configs_dir_path}/brewfile $HOME/.brewfile
 # git settings
-sh ${congigs_dir_path}/git/setup.sh
+sh "$configs_dir_path/git/setup.sh"
 
 # link to user_bin.
 ln -sfn ${c_dir}/tool/bin $HOME/bin

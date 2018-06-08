@@ -30,4 +30,4 @@ if ! [ -f "tool/bin/${target}" ]; then
 	rm "${target_bin}.tar.gz"
 fi
 
-ln -sf "tool/bin/${target}" tool/bin/mitamae
+ln -sf "${target}" "tool/bin/mitamae"

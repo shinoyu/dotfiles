@@ -28,6 +28,7 @@ else
 fi
 
 # ツール初期化、環境変数設定
+# FIXME: そのうち移動させること
 if type rbenv >/dev/null 2>&1; then
 	eval "$(rbenv init - zsh)"
 	export PATH="$PATH:$HOME/.rbenv/bin"
@@ -72,6 +73,9 @@ zstyle ':zle:*' word-style unspecified
 # 補完
 # 補完機能を有効にする
 
+autoload -U compinit
+compinit
+
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
@@ -84,6 +88,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+zstyle ':completion:*:default' menu select=2
+
 
 #######################################
 # vcs_info
@@ -181,12 +188,21 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt inc_append_history
 setopt hist_no_store
+setopt auto_param_slash       # ディレクトリ移動時に末尾slash補完
+setopt auto_menu
+setopt auto_param_keys        # 括弧補完
+setopt interactive_comments   # コマンドラインでのコメント有効化
+setopt magic_equal_subst      # 引数補完
+setopt complete_in_word
+setopt always_last_prompt
 
 ########################################
 # key binding.
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 #bindkey '^R' history-incremental-pattern-search-backward
+bindkey '\e[1~'  beginning-of-line
+bindkey '\e[4~' end-of-line
 
 ########################################
 # alias
@@ -261,7 +277,6 @@ zle -N peco-snippets-add
 bindkey '^si' peco-snippets-add
 alias snip.edit="vim $snippets_file_path"
 
-#
 ####
 
 # 

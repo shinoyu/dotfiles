@@ -1,0 +1,16 @@
+#!/bin/shell
+
+if cmd_exists docker; then
+
+  if cmd_exists peco; then 
+    # for docker$
+    function peco-find-docker-ps() {
+      selected_id=$(docker ps | tail -n +2 | peco --prompt "[find process]" --layout=bottom-up | cut -d" " -f1)
+      BUFFER="${BUFFER}$(echo $selected_id | tr '\n' ' ')"
+      CURSOR=$#BUFFER
+    }
+    zle -N peco-find-docker-ps
+    bindkey -r "^d" # どうやらlogoutがbindされているので、無効化しておく
+    bindkey "^d^p" peco-find-docker-ps
+  fi
+fi

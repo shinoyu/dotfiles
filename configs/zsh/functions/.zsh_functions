@@ -7,3 +7,15 @@ function abort() {
 	echo "$@" 1>&2
 	exit 1
 }
+
+function cmd_exists() {
+	type "$1" >/dev/null 2>&1
+}
+
+function path_exists() { 
+  [[ -e $1 ]]
+}
+
+function exists() {
+	cmd_exists $1 || path_exists $1
+}

@@ -1,0 +1,8 @@
+#!/bin/shell
+
+if cmd_exists exa; then
+	alias ll='exa -lbgHhiam'
+else
+	alias ll='ls -al'
+fi
+

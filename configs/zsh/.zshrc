@@ -13,11 +13,17 @@ export PAGER="less"
 export VISUAL="vim"
 
 # OS 別の設定
-local load_files=("functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args" "aliases/.zsh_alias" )
+local load_files=("functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args" )
 
 for v in ${load_files}; do
 	local load_file="$ZDOTDIR/${v}"
 	test -f $load_file && . $load_file && echo "loaded $load_file"
+done
+
+# コマンド設定の読み込み
+local app_setting_root="$ZDOTDIR/apps"
+for v in `find $ZDOTDIR/apps -maxdepth 1 -type f`; do
+ . $v
 done
 
 local zsh_machine_file="$ZDOTDIR/.zshrc_Machine"

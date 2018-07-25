@@ -4,3 +4,5 @@ alias ls='ls -F --color=auto'
 # key settings
 bindkey '^[[1;5D' beginning-of-line
 bindkey '^[[1;5C' end-of-line
+bindkey '^[[1;5F' end-of-line
+bindkey '^[[1;5H' beginning-of-line

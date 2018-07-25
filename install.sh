@@ -9,6 +9,7 @@ ln -sfn ${configs_dir_path}/bash_ext $HOME/.bash_ext
 ln -sfn ${configs_dir_path}/vim $HOME/.vim
 ln -sf  ${configs_dir_path}/vimrc $HOME/.vimrc
 ln -sf  ${configs_dir_path}/tmux.conf $HOME/.tmux.conf
+ln -sf  ${configs_dir_path}/tmux-reattach-to-user-namespace.conf $HOME/.tmux-reattach-to-user-namespace.conf
 ln -sf  ${configs_dir_path}/brewfile $HOME/.brewfile
 # git settings
 sh "$configs_dir_path/git/setup.sh"

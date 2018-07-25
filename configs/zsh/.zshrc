@@ -6,7 +6,7 @@ export LANG=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
 export GOPATH="$HOME/_/go/third-party"
-export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin:$HOME/bin"
+export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin"
 
 export EDITOR="vim"
 export PAGER="less"
@@ -51,6 +51,10 @@ fi
 if type nodebrew >/dev/null 2>&1; then
 	export PATH="$PATH:$HOME/.nodebrew/current/bin:"
 fi
+if cmd_exists anyenv; then 
+	eval "$(anyenv init -)"
+fi
+
 
 # その他変数
 local snippets_file_path=$HOME/.snippets

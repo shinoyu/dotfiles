@@ -51,9 +51,7 @@ fi
 if type nodebrew >/dev/null 2>&1; then
 	export PATH="$PATH:$HOME/.nodebrew/current/bin:"
 fi
-if cmd_exists anyenv; then 
-	eval "$(anyenv init -)"
-fi
+cmd_exists anyenv && eval "$(anyenv init - zsh)"
 
 
 # その他変数

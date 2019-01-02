@@ -21,7 +21,8 @@
     "editor.find.autoFindInSelection": true,
     "editor.autoClosingBrackets": false,
     "editor.autoIndent": false,
-    "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+    "editor.fontFamily": "Fira Code, Monaco, Menlo, 'Courier New', monospace",
+    "editor.fontLigatures": true,
     "editor.renderControlCharacters": true,
     "search.exclude": {
         "**/tmp": true,

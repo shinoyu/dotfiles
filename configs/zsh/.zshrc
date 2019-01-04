@@ -13,9 +13,7 @@ export PAGER="less"
 export VISUAL="vim"
 
 # OS 別の設定
-local load_files=("functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args" )
-
-for v in ${load_files}; do
+for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args"; do
 	local load_file="$ZDOTDIR/${v}"
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done

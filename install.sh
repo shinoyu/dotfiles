@@ -1,15 +1,18 @@
 c_dir=$(pwd)
 configs_dir_path="$c_dir/configs"
 
-# link to user dir.
+# init user dir.
 ln -sf  ${configs_dir_path}/zshenv $HOME/.zshenv
+# link to user dir.
 ln -sfn ${configs_dir_path}/zsh $HOME/.zsh
 ln -sf  ${configs_dir_path}/tigrc $HOME/.tigrc
 ln -sfn ${configs_dir_path}/bash_ext $HOME/.bash_ext
 ln -sfn ${configs_dir_path}/vim $HOME/.vim
 ln -sf  ${configs_dir_path}/vimrc $HOME/.vimrc
-ln -sf  ${configs_dir_path}/tmux.conf $HOME/.tmux.conf
-ln -sf  ${configs_dir_path}/tmux-reattach-to-user-namespace.conf $HOME/.tmux-reattach-to-user-namespace.conf
+
+[ ! -e  $HOME/.tmux ] && mkdir $HOME/.tmux
+ln -sf  ${configs_dir_path}/tmux/tmux.conf $HOME/.tmux.conf
+ln -sf  ${configs_dir_path}/tmux/tmux-$L_OSTYPE.conf $HOME/.tmux/tmux-$L_OSTYPE.conf
 ln -sf  ${configs_dir_path}/brewfile $HOME/.brewfile
 # git settings
 sh "$configs_dir_path/git/setup.sh"

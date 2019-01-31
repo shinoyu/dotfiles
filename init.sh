@@ -9,6 +9,9 @@ if [ ${EUID:-${UID}} != 0 ]; then
 fi
 
 sh ./post_init
+
+: "os_init" && {
+	source ./init/init_darwin.sh
+}
+
 sh ./install.sh
-
-

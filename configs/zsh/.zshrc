@@ -13,9 +13,7 @@ export PAGER="less"
 export VISUAL="vim"
 
 # OS 別の設定
-local load_files=("functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args" )
-
-for v in ${load_files}; do
+for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args"; do
 	local load_file="$ZDOTDIR/${v}"
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done
@@ -35,26 +33,15 @@ fi
 
 # ツール初期化、環境変数設定
 # FIXME: そのうち移動させること
-if type rbenv >/dev/null 2>&1; then
+cmd_exists rbenv && {
 	eval "$(rbenv init - zsh)"
 	export PATH="$PATH:$HOME/.rbenv/bin"
-fi
-if type direnv >/dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
-if type hub >/dev/null 2>&1; then
-	eval "$(hub alias -s)"
-fi
-if type git >/dev/null 2>&1; then
-	export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
-fi
-if type nodebrew >/dev/null 2>&1; then
-	export PATH="$PATH:$HOME/.nodebrew/current/bin:"
-fi
-if cmd_exists anyenv; then 
-	eval "$(anyenv init -)"
-fi
-
+}
+cmd_exists direnv && eval "$(direnv hook zsh)"
+cmd_exists hub && eval "$(hub alias -s)"
+cmd_exists git && export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
+cmd_exists nodebrew && export PATH="$PATH:$HOME/.nodebrew/current/bin:"
+cmd_exists anyenv && eval "$(anyenv init - zsh)"
 
 # その他変数
 local snippets_file_path=$HOME/.snippets

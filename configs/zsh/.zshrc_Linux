@@ -1,3 +1,8 @@
+# PATH$
+export LINUXBREW_BIN_PATH="$HOME/linuxbrew/.linuxbrew/bin"$
+export LINUXBREW_SUDO_BIN_PATH="/home/linuxbrew/.linuxbrew/bin"$
+export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}"$
+
 # alias
 alias ls='ls -F --color=auto'
 
@@ -6,3 +11,13 @@ bindkey '^[[1;5D' beginning-of-line
 bindkey '^[[1;5C' end-of-line
 bindkey '^[[1;5F' end-of-line
 bindkey '^[[1;5H' beginning-of-line
+
+# init
+: "setting linuxbrew" && {
+  local target=""
+  exists ${LINUXBREW_BIN_PATH} && target="${LINUXBREW_BIN_PATH}"
+  exists ${LINUXBREW_SUDO_BIN_PATH} && target="${LINUXBREW_SUDO_BIN_PATH}"
+  exists ${target} && {
+    eval `${target}/brew shellenv` && echo "run-state: wake up brew."
+  }
+}

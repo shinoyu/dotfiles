@@ -5,7 +5,7 @@
 export LANG=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
-export GOPATH="$HOME/go"
+export GOPATH="$HOME"
 export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin"
 
 export EDITOR="vim"

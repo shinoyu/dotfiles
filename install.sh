@@ -18,7 +18,7 @@ ln -sf  ${configs_dir_path}/brewfile $HOME/.brewfile
 sh "$configs_dir_path/git/setup.sh"
 
 # link to user_bin.
-ln -sfn ${c_dir}/tool/bin $HOME/bin
+#ln -sfn ${c_dir}/tool/bin $HOME/bin
 
 # install homebrew
 if [ $L_OSTYPE="Darwin" ]; then 

@@ -7,7 +7,7 @@ if [ $(uname) != "Darwin" ] ; then
 fi
 
 ###### Base ######
-# ブート時のサウンドの無効化 (寂しい気もしますが煩いので消しています)
+# ブート時のサウンドの無効化
 sudo nvram SystemAudioVolume=" "
 # スクロールバーの常時表示
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -90,3 +90,9 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
 # アプリケーションの自動更新を有効化
 defaults write com.apple.commerce AutoUpdate -bool true
+
+: "setup xcode-select" && { 
+  if ! xcode-select -h >/dev/null 2>&1; then 
+    xcode-select --install
+  fi
+}

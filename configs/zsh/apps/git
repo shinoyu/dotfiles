@@ -6,13 +6,13 @@ else
   : "set recent repository" && {
     if cmd_exists ghq; then
       function peco-recent-repos() {
-        selected_repo=$(ghq list --full-path | peco --prompt "[find repository]" --layout=bottom-up | cut -d" " -f1)
-				if [ -n "$selected_repo" ]; then
-        	BUFFER="cd ${selected_repo}"
-        	zle accept-line
-				fi
-			}
-			zle -N peco-recent-repos
+        selected_repo=$(ghq list --full-path | peco --prompt "[find repository]" --layout=bottom-up)
+        if [ -n "$selected_repo" ]; then
+          BUFFER="cd ${selected_repo}"
+          zle accept-line
+        fi
+      }
+      zle -N peco-recent-repos
       bindkey "^g^r" peco-recent-repos
     fi
   }

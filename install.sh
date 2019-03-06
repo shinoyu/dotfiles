@@ -13,7 +13,8 @@ ln -sf  ${configs_dir_path}/vimrc $HOME/.vimrc
 
 ln -sf  ${configs_dir_path}/brewfile $HOME/.brewfile
 # git settings
-sh "$configs_dir_path/git/setup.sh"
+sh "${configs_dir_path}/git/setup.sh"
+sh "${configs_dir_path}/hyper/setup.sh"
 
 # link to user_bin.
 #ln -sfn ${c_dir}/tool/bin $HOME/bin

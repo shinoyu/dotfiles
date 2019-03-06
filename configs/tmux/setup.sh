@@ -1,7 +1,7 @@
-#!/bin/bash -eu
+#!/bin/sh
 
 : "setup tmux.conf" && { 
-	c_dir=$(pwd)
+	c_dir=$(cd $(dirname $0); pwd)
 
 	mkdir -p $HOME/.tmux
 	ln -sf  ${c_dir}/tmux.conf $HOME/.tmux.conf

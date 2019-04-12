@@ -21,3 +21,10 @@ bindkey '^[[1;5H' beginning-of-line
     eval `${target}/brew shellenv` && echo "run-state: wake up brew."
   }
 }
+
+# input
+: "setting IME" && { 
+  export GTK_IM_MODULE=fcitx
+  export XMODIFIERS=@im=fcitx
+  export QT_IM_MODULE=fcitx
+}

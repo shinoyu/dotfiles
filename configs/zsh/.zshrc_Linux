@@ -1,7 +1,9 @@
 # PATH$
 export LINUXBREW_BIN_PATH="$HOME/linuxbrew/.linuxbrew/bin"$
 export LINUXBREW_SUDO_BIN_PATH="/home/linuxbrew/.linuxbrew/bin"$
-export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}"$
+export APPLICATION_PATH="$HOME/Applications"
+
+export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}:${APPLICATION_PATH}"
 
 # alias
 alias ls='ls -F --color=auto'
@@ -27,4 +29,11 @@ bindkey '^[[1;5H' beginning-of-line
   export GTK_IM_MODULE=fcitx
   export XMODIFIERS=@im=fcitx
   export QT_IM_MODULE=fcitx
+}
+
+# aliases
+
+: "setting alias" && {
+alias clip="xsel -b"
+
 }

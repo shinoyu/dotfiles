@@ -25,3 +25,9 @@
 		printf %q "$1" | sed -e 's/\\\\/\//g'
 	}
 }
+
+: "general functions" && {
+  function find_process() {
+    ps aux | grep $1 | grep -v grep
+  }
+}

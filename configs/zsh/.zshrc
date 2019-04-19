@@ -204,6 +204,7 @@ bindkey '\e[4~' end-of-line
 ########################################
 # alias
 alias search='find . -name'
+alias p.f='find_process '
 alias history='history -t "%Y-%m-%d %a %H:%M:%S"'
 alias v='vim'
 alias ...="cd ../../"

@@ -1,3 +1,6 @@
+[core]
+  editor = 'vim -c "set fenc=utf-8"'
+  excludesfile = ~/.gitignore
 [diff]
   tool = vimdiff
   algorithm = histogram
@@ -6,3 +9,13 @@
   algorithm = histogram
 [mergetool]
   keepBackup = false
+[user]
+  name = shinoyu
+[mergetool]
+  keepbackup = false
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[ghq]
+  root = ~/src

@@ -5,7 +5,7 @@
 export LANG=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
-export GOPATH="$HOME/_/go/third-party"
+export GOPATH="$HOME"
 export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin"
 
 export EDITOR="vim"
@@ -204,6 +204,7 @@ bindkey '\e[4~' end-of-line
 ########################################
 # alias
 alias search='find . -name'
+alias p.f='find_process '
 alias history='history -t "%Y-%m-%d %a %H:%M:%S"'
 alias v='vim'
 alias ...="cd ../../"

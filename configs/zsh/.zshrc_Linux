@@ -1,3 +1,11 @@
+# PATH
+export LINUXBREW_BIN_PATH="$HOME/linuxbrew/.linuxbrew/bin"$
+export LINUXBREW_SUDO_BIN_PATH="/home/linuxbrew/.linuxbrew/bin"$
+export APPLICATION_PATH="$HOME/applications"
+export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}:${APPLICATION_PATH}"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # alias
 alias ls='ls -F --color=auto'
 
@@ -6,3 +14,27 @@ bindkey '^[[1;5D' beginning-of-line
 bindkey '^[[1;5C' end-of-line
 bindkey '^[[1;5F' end-of-line
 bindkey '^[[1;5H' beginning-of-line
+
+# init
+: "setting linuxbrew" && {
+  local target=""
+  exists ${LINUXBREW_BIN_PATH} && target="${LINUXBREW_BIN_PATH}"
+  exists ${LINUXBREW_SUDO_BIN_PATH} && target="${LINUXBREW_SUDO_BIN_PATH}"
+  exists ${target} && {
+    eval `${target}/brew shellenv` && echo "run-state: wake up brew."
+  }
+}
+
+# input
+: "setting IME" && { 
+  export GTK_IM_MODULE=fcitx
+  export XMODIFIERS=@im=fcitx
+  export QT_IM_MODULE=fcitx
+}
+
+# aliases
+
+: "setting alias" && {
+alias clip="xsel -b"
+
+}

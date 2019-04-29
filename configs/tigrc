@@ -2,6 +2,9 @@
 set main-view = id date author commit-title:graph=yes,refs=yes
 set diff-view = line-number:yes,interval=1 text
 
+# show untracker
+set status-show-untracked-files = yes
+
 # 画面の垂直分割
 set vertical-split = yes
 set split-view-height = 70%

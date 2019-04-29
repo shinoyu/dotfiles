@@ -1,9 +1,10 @@
-# PATH$
+# PATH
 export LINUXBREW_BIN_PATH="$HOME/linuxbrew/.linuxbrew/bin"$
 export LINUXBREW_SUDO_BIN_PATH="/home/linuxbrew/.linuxbrew/bin"$
-export APPLICATION_PATH="$HOME/Applications"
-
+export APPLICATION_PATH="$HOME/applications"
 export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}:${APPLICATION_PATH}"
+
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # alias
 alias ls='ls -F --color=auto'

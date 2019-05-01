@@ -1,0 +1,36 @@
+#!/bin/sh
+
+: "I/O functions" && {
+  function message() {
+    echo "$@" 1>&2
+  }
+  function abort() { 
+    echo "$@" 1>&2
+    exit 1
+  }
+}
+: "file/dir functions" && {
+  function cmd_exists() {
+    type "$1" >/dev/null 2>&1
+  }
+  function path_exists() { 
+    [[ -e $1 ]]
+  }
+  function exists() {
+    cmd_exists $1 || path_exists $1
+  }
+  function current_dir() {
+     echo $(cd $(dirname $0); pwd)
+  }
+}
+: "string functions" && {
+  function win2nxp() {
+		printf %q "$1" | sed -e 's/\\\\/\//g'
+	}
+}
+
+: "general functions" && {
+  function find_process() {
+    ps aux | grep $1 | grep -v grep
+  }
+}

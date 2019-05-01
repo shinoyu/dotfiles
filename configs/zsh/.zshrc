@@ -109,46 +109,12 @@ add-zsh-hook precmd _vsc_precmd
 
 ########################################
 # peco
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --layout=bottom-up --query "$LBUFFER")
-    CURSOR=$#BUFFER
-}
-zle -N peco-select-history
 bindkey '^h' peco-select-history
-
-function peco-git-recent-branches () {
-    local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
-        perl -pne 's{^refs/heads/}{}' | \
-        peco --layout=bottom-up)
-    if [ -n "$selected_branch" ]; then
-        BUFFER="git checkout ${selected_branch}"
-        zle accept-line
-    fi
-}
-zle -N peco-git-recent-branches
 bindkey "^g^b" peco-git-recent-branches
-
-
-function peco-find-file() {
-  if git rev-parse 2> /dev/null; then
-    source_files=$(git ls-files)
-  else	
-    source_files=$(find . -type f)
-  fi
-  selected_files=$(echo $source_files | peco --prompt "[find file]" --layout=bottom-up)
-	BUFFER="${BUFFER}$(echo $selected_files | tr '\n' ' ')"
-	CURSOR=$#BUFFER
-}
-zle -N peco-find-file
 bindkey '^q' peco-find-file
+bindkey '^f^f' peco-find-file
+bindkey '^sf' peco-snippets
+bindkey '^si' peco-snippets-add
 
 ########################################
 # オプション
@@ -242,6 +208,8 @@ alias g_c_u='git symbolic-ref --short HEAD | xargs git pull origin'
 alias g_cb='git symbolic-ref --short HEAD'
 alias g_v='git browse'
 alias be='bundle exec'
+alias snip.edit="vim $snippets_file_path"
+
 
 function input_current_branch() {
 	BUFFER+=$(eval "git symbolic-ref --short HEAD")
@@ -249,33 +217,6 @@ function input_current_branch() {
 }
 zle -N input_current_branch
 bindkey '^gb' input_current_branch
-
-#### snippet control.
-#
-
-function peco-snippets() {
-	if [ ! -e $snippets_file_path ]; then
-		touch $snippets_file_path
-	fi
-	BUFFER=$(grep -v "^#" $snippets_file_path | peco --query "$LBUFFER" --prompt "[find snippets.]" --layout=bottom-up )
-	CURSOR=$#BUFFER
-	zle clear-screen
-}
-zle -N peco-snippets
-bindkey '^sf' peco-snippets
-
-function peco-snippets-add() {
-	if [ ! -e $snippets_file_path ]; then
-		touch $snippets_file_path
-	fi
-	echo $BUFFER >> $snippets_file_path
-	zle -M "snippets entry! $BUFFER"
-}
-zle -N peco-snippets-add
-bindkey '^si' peco-snippets-add
-alias snip.edit="vim $snippets_file_path"
-
-####
 
 # 
 # Cを付与することで標準出力をクリップボードにコピー

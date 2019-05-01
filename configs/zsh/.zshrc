@@ -109,13 +109,20 @@ add-zsh-hook precmd _vsc_precmd
 
 ########################################
 # peco
-bindkey '^h' peco-select-history
-bindkey "^g^b" peco-git-recent-branches
-bindkey '^q' peco-find-file
-bindkey '^f^f' peco-find-file
-bindkey '^sf' peco-snippets
-bindkey '^si' peco-snippets-add
+# bindkey '^h' peco-select-history
+# bindkey "^g^b" peco-git-recent-branches
+# bindkey '^q' peco-find-file
+# bindkey '^f^f' peco-find-file
+# bindkey '^sf' peco-snippets
+# bindkey '^si' peco-snippets-add
 
+
+bindkey '^h' fzf-select-history
+bindkey "^g^b" fzf-git-recent-branches
+bindkey '^q' fzf-find-file
+bindkey '^f^f' fzf-find-file
+bindkey '^sf' fzf-snippets
+bindkey '^si' fzf-snippets-add
 ########################################
 # オプション
 

@@ -1,0 +1,58 @@
+# !/bin/sh
+
+if ! cmd_exists peco; then
+  :
+else
+    export FZF_DEFAULT_OPTS="--ansi --exit-0 --no-mouse --inline-info --border  --height 18"
+
+    function fzf-select-history() {
+        local tac
+        if which tac > /dev/null; then
+            tac="tac"
+        else
+            tac="tail -r"
+        fi
+        BUFFER=$(\history -n 1 | \
+            eval $tac | \
+            fzf --query "$LBUFFER" --prompt "[select history]>")
+        CURSOR=$#BUFFER
+    } && zle -N fzf-select-history
+
+    function fzf-git-recent-branches () {
+        local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
+            perl -pne 's{^refs/heads/}{}' | \
+            fzf)
+        if [ -n "$selected_branch" ]; then
+            BUFFER="git checkout ${selected_branch}"
+            zle accept-line
+        fi
+    } && zle -N fzf-git-recent-branches
+
+    function fzf-find-file() {
+    if git rev-parse 2> /dev/null; then
+        source_files=$(git ls-files)
+    else	
+        source_files=$(find . -type f)
+    fi
+    selected_files=$(echo $source_files | fzf --prompt "[find file]>")
+        BUFFER="${BUFFER}$(echo $selected_files | tr '\n' ' ')"
+        CURSOR=$#BUFFER
+    } && zle -N fzf-find-file
+
+    function fzf-snippets() {
+        if [ ! -e $snippets_file_path ]; then
+            touch $snippets_file_path
+        fi
+        BUFFER=$(grep -v "^#" $snippets_file_path | fzf --query "$LBUFFER" --prompt "[find snippets]>" )
+        CURSOR=$#BUFFER
+        zle clear-screen
+    } && zle -N fzf-snippets
+
+    function fzf-snippets-add() {
+        if [ ! -e $snippets_file_path ]; then
+            touch $snippets_file_path
+        fi
+        echo $BUFFER >> $snippets_file_path
+        zle -M "snippets entry! $BUFFER"
+    } && zle -N fzf-snippets-add
+fi

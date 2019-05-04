@@ -1,5 +1,8 @@
 # !/bin/sh
 
+if ! cmd_exists peco; then
+  :
+else
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
@@ -50,3 +53,5 @@ function peco-snippets-add() {
 	echo $BUFFER >> $snippets_file_path
 	zle -M "snippets entry! $BUFFER"
 } && zle -N peco-snippets-add
+
+fi

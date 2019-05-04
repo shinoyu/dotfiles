@@ -43,4 +43,8 @@
       echo `uname`
     fi
   }
+
+  is_linux_os() {
+    [[ "Linux" = `get_os_type` ]]
+  }
 }

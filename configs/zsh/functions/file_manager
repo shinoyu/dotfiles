@@ -1,4 +1,4 @@
-#!/bin/shell
+#!/bin/sh
 
 if cmd_exists spacefm; then
   function open() {

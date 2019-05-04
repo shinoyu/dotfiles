@@ -3,7 +3,7 @@
 if ! cmd_exists peco; then
   :
 else
-    export FZF_DEFAULT_OPTS="--ansi --exit-0 --no-mouse --inline-info --border  --height 18"
+    export FZF_DEFAULT_OPTS="--ansi --exit-0 --no-mouse --inline-info --border  --height 18 --tac"
 
     function fzf-select-history() {
         local tac

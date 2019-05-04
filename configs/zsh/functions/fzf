@@ -1,6 +1,6 @@
 # !/bin/sh
 
-if ! cmd_exists peco; then
+if ! cmd_exists fzf; then
   :
 else
     export FZF_DEFAULT_OPTS="--ansi --exit-0 --no-mouse --inline-info --border  --height 18 --tac"

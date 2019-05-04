@@ -33,4 +33,14 @@
   function find_process() {
     ps aux | grep $1 | grep -v grep
   }
+
+  function get_os_type() {
+    uname -a | grep "Microsoft" | grep "Linux">/dev/null
+    local res=$? 
+    if [ $res -eq 0 ]; then
+      echo 'Windows_Linux'
+    else 
+      echo `uname`
+    fi
+  }
 }

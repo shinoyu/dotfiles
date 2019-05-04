@@ -1,0 +1,12 @@
+#!/bin/shell
+
+if cmd_exists spacefm; then
+  function open() {
+     local open_path=${1:-.}
+     spacefm -t -n ${open_path}
+  }
+elif cmd_exists finder; then 
+     :  "mac no settings."
+else
+     echo "warning: file manager is not setting."
+fi 

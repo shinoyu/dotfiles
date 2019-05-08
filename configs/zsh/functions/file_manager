@@ -1,9 +1,9 @@
 #!/bin/sh
 
-if cmd_exists spacefm; then
+if cmd_exists thunar; then
   function open() {
      local open_path=${1:-.}
-     spacefm -t -n ${open_path}
+     thunar ${open_path}
   }
 elif cmd_exists finder; then 
      :  "mac no settings."

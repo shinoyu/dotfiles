@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
+"AutoRepeatDelay"=dword:170
+"AutoRepeatRate"=dword:9
+"BounceTime"=dword:0
+"DelayBeforeAcceptance"=dword:0
+"Flags"=dword:59

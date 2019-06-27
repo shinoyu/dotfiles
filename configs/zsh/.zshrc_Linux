@@ -16,7 +16,8 @@ bindkey '^[[1;5F' end-of-line
 bindkey '^[[1;5H' beginning-of-line
 
 # init
-: "setting linuxbrew" && {
+
+setting_linuxbrew() {
   local target=""
   exists ${LINUXBREW_BIN_PATH} && target="${LINUXBREW_BIN_PATH}"
   exists ${LINUXBREW_SUDO_BIN_PATH} && target="${LINUXBREW_SUDO_BIN_PATH}"
@@ -26,15 +27,17 @@ bindkey '^[[1;5H' beginning-of-line
 }
 
 # input
-: "setting IME" && { 
+
+setting_ime() { 
   export GTK_IM_MODULE=fcitx
   export XMODIFIERS=@im=fcitx
   export QT_IM_MODULE=fcitx
 }
 
 # aliases
-
-: "setting alias" && {
-alias clip="xsel -b"
-
+setting_alias() {
+  alias clip="xsel -b"
 }
+
+setting_ime
+setting_alias

@@ -27,11 +27,16 @@ setting_linuxbrew() {
 }
 
 # input
-
 setting_ime() { 
   export GTK_IM_MODULE=fcitx
   export XMODIFIERS=@im=fcitx
   export QT_IM_MODULE=fcitx
+}
+
+setting_keymap() {
+  exists xmodmap && {
+    xmodmap ~/.xmodmap
+  }
 }
 
 # aliases

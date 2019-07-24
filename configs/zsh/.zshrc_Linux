@@ -16,7 +16,6 @@ bindkey '^[[1;5F' end-of-line
 bindkey '^[[1;5H' beginning-of-line
 
 # init
-
 setting_linuxbrew() {
   local target=""
   exists ${LINUXBREW_BIN_PATH} && target="${LINUXBREW_BIN_PATH}"
@@ -37,6 +36,10 @@ setting_keymap() {
   exists xmodmap && {
     xmodmap ~/.xmodmap
   }
+}
+
+setting_keyrepeat() {
+	xsel r rate 184 25
 }
 
 # aliases

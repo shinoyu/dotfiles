@@ -110,13 +110,16 @@ add-zsh-hook precmd _vsc_precmd
 # bindkey '^sf' peco-snippets
 # bindkey '^si' peco-snippets-add
 
-
 bindkey '^h' fzf-select-history
 bindkey "^g^b" fzf-git-recent-branches
 bindkey '^q' fzf-find-file
 bindkey '^f^f' fzf-find-file
 bindkey '^sf' fzf-snippets
 bindkey '^si' fzf-snippets-add
+bindkey "^g^r" fzf-recent-repos
+
+bindkey -r "^d" # logoutがbindされているので、無効化しておく
+bindkey "^d^p" fzf-find-docker-ps
 ########################################
 # オプション
 

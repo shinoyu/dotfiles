@@ -18,12 +18,6 @@ for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args"; do
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done
 
-# コマンド設定の読み込み
-local app_setting_root="$ZDOTDIR/apps"
-for v in `find $ZDOTDIR/apps -maxdepth 1 -type f`; do
- . $v
-done
-
 local zsh_machine_file="$ZDOTDIR/.zshrc_Machine"
 if test -f $zsh_machine_file; then
 	. $zsh_machine_file && echo "loaded $zsh_machine_file"

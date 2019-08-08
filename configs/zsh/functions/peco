@@ -3,7 +3,7 @@
 if ! cmd_exists peco; then
   :
 else
-function peco-select-history() {
+peco-select-history() {
     local tac
     if which tac > /dev/null; then
         tac="tac"
@@ -16,7 +16,7 @@ function peco-select-history() {
     CURSOR=$#BUFFER
 } && zle -N peco-select-history
 
-function peco-git-recent-branches () {
+peco-git-recent-branches () {
     local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
         perl -pne 's{^refs/heads/}{}' | \
         peco --layout=bottom-up)
@@ -26,7 +26,7 @@ function peco-git-recent-branches () {
     fi
 } && zle -N peco-git-recent-branches
 
-function peco-find-file() {
+peco-find-file() {
   if git rev-parse 2> /dev/null; then
     source_files=$(git ls-files)
   else	
@@ -37,7 +37,7 @@ function peco-find-file() {
 	CURSOR=$#BUFFER
 } && zle -N peco-find-file
 
-function peco-snippets() {
+peco-snippets() {
 	if [ ! -e $snippets_file_path ]; then
 		touch $snippets_file_path
 	fi
@@ -46,7 +46,7 @@ function peco-snippets() {
 	zle clear-screen
 } && zle -N peco-snippets
 
-function peco-snippets-add() {
+peco-snippets-add() {
 	if [ ! -e $snippets_file_path ]; then
 		touch $snippets_file_path
 	fi
@@ -54,4 +54,9 @@ function peco-snippets-add() {
 	zle -M "snippets entry! $BUFFER"
 } && zle -N peco-snippets-add
 
+peco-find-docker-ps() {
+  selected_id=$(docker ps | tail -n +2 | peco --prompt "[find process]" --layout=bottom-up | cut -d" " -f1)
+  BUFFER="${BUFFER}$(echo $selected_id | tr '\n' ' ')"
+  CURSOR=$#BUFFER
+} && zle -N peco-find-docker-ps
 fi

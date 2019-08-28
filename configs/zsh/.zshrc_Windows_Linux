@@ -12,3 +12,7 @@ export BROWSER='/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.
     eval `${target}/brew shellenv` && echo "run-state: wake up brew."
   }
 }
+
+: "setting windows alias" && {
+  alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe"
+}

@@ -1,7 +1,7 @@
-# PATH
 export LINUXBREW_BIN_PATH="$HOME/linuxbrew/.linuxbrew/bin"
 export LINUXBREW_SUDO_BIN_PATH="/home/linuxbrew/.linuxbrew/bin"
 export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}"
+export BROWSER='/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
 
 # init
 : "setting linuxbrew" && {

@@ -39,7 +39,7 @@ setting_keymap() {
 }
 
 setting_keyrepeat() {
-	xsel r rate 184 25
+	xset r rate 184 25
 }
 
 # aliases

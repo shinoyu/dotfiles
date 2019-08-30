@@ -5,7 +5,7 @@ if ! cmd_exists fzf; then
 else
 export FZF_DEFAULT_OPTS="--ansi --exit-0 --no-mouse --inline-info --border  --height 18 --tac"
 
-function fzf-select-history() {
+fzf-select-history() {
     local tac
     if which tac > /dev/null; then
         tac="tac"
@@ -18,7 +18,7 @@ function fzf-select-history() {
     CURSOR=$#BUFFER
 } && zle -N fzf-select-history
 
-function fzf-git-recent-branches () {
+fzf-git-recent-branches () {
     local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
         perl -pne 's{^refs/heads/}{}' | \
         fzf --prompt "[select branch]>")
@@ -28,7 +28,7 @@ function fzf-git-recent-branches () {
     fi
 } && zle -N fzf-git-recent-branches
 
-function fzf-find-file() {
+fzf-find-file() {
 if git rev-parse 2> /dev/null; then
     source_files=$(git ls-files)
 else	
@@ -39,7 +39,7 @@ selected_files=$(echo $source_files | fzf --prompt "[find file]>")
     CURSOR=$#BUFFER
 } && zle -N fzf-find-file
 
-function fzf-snippets() {
+fzf-snippets() {
     if [ ! -e $snippets_file_path ]; then
         touch $snippets_file_path
     fi
@@ -48,11 +48,26 @@ function fzf-snippets() {
     zle clear-screen
 } && zle -N fzf-snippets
 
-function fzf-snippets-add() {
+fzf-snippets-add() {
     if [ ! -e $snippets_file_path ]; then
         touch $snippets_file_path
     fi
     echo $BUFFER >> $snippets_file_path
     zle -M "snippets entry! $BUFFER"
 } && zle -N fzf-snippets-add
+
+fzf-recent-repos() {
+    selected_repo=$(ghq list --full-path | fzf --prompt "[find repository]>" --height 30)
+    if [ -n "$selected_repo" ]; then
+        BUFFER="cd ${selected_repo}"
+        zle accept-line
+    fi
+} && zle -N fzf-recent-repos
+
+fzf-find-docker-ps() {
+    selected_id=$(docker ps | tail -n +2 | fzf --prompt "[find process]" --height 30 | cut -d" " -f1)
+    BUFFER="${BUFFER}$(echo $selected_id | tr '\n' ' ')"
+    CURSOR=$#BUFFER
+} && zle -N fzf-find-docker-ps
+
 fi

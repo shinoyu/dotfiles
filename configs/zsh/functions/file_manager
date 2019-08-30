@@ -7,6 +7,8 @@ if cmd_exists thunar; then
   }
 elif cmd_exists finder; then 
      :  "mac no settings."
+elif cmd_exists explorer; then
+   : "windows no settings."
 else
      echo "warning: file manager is not setting."
 fi 

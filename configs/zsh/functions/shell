@@ -1,41 +1,41 @@
 #!/bin/sh
 
 : "I/O functions" && {
-  function message() {
+  message() {
     echo "$@" 1>&2
   }
-  function abort() { 
+  abort() { 
     echo "$@" 1>&2
     exit 1
   }
 }
 : "file/dir functions" && {
-  function cmd_exists() {
+  cmd_exists() {
     type "$1" >/dev/null 2>&1
   }
-  function path_exists() { 
+  path_exists() { 
     [[ -e $1 ]]
   }
-  function exists() {
+  exists() {
     cmd_exists $1 || path_exists $1
   }
-  function current_dir() {
+  current_dir() {
      echo $(cd $(dirname $0); pwd)
   }
 }
 : "string functions" && {
-  function win2nxp() {
+  win2nxp() {
 		printf %q "$1" | sed -e 's/\\\\/\//g'
 	}
 }
 
 : "general functions" && {
-  function find_process() {
+  find_process() {
     ps aux | grep $1 | grep -v grep
   }
 
-  function get_os_type() {
-    uname -a | grep "Microsoft" | grep "Linux">/dev/null
+  get_os_type() {
+    uname -a | grep "microsoft" | grep "Linux">/dev/null
     local res=$? 
     if [ $res -eq 0 ]; then
       echo 'Windows_Linux'
@@ -47,4 +47,12 @@
   is_linux_os() {
     [[ "Linux" = `get_os_type` ]]
   }
+}
+
+: "alias settings" && {
+  if cmd_exists exa; then
+      alias ll='exa -lbgHhiam'
+  else
+      alias ll='ls -al'
+  fi
 }

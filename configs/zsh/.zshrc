@@ -18,12 +18,6 @@ for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args"; do
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done
 
-# コマンド設定の読み込み
-local app_setting_root="$ZDOTDIR/apps"
-for v in `find $ZDOTDIR/apps -maxdepth 1 -type f`; do
- . $v
-done
-
 local zsh_machine_file="$ZDOTDIR/.zshrc_Machine"
 if test -f $zsh_machine_file; then
 	. $zsh_machine_file && echo "loaded $zsh_machine_file"
@@ -116,13 +110,16 @@ add-zsh-hook precmd _vsc_precmd
 # bindkey '^sf' peco-snippets
 # bindkey '^si' peco-snippets-add
 
-
 bindkey '^h' fzf-select-history
 bindkey "^g^b" fzf-git-recent-branches
 bindkey '^q' fzf-find-file
 bindkey '^f^f' fzf-find-file
 bindkey '^sf' fzf-snippets
 bindkey '^si' fzf-snippets-add
+bindkey "^g^r" fzf-recent-repos
+
+bindkey -r "^d" # logoutがbindされているので、無効化しておく
+bindkey "^d^p" fzf-find-docker-ps
 ########################################
 # オプション
 

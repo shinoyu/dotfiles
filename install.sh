@@ -7,7 +7,7 @@ configs_dir_path="$c_dir/configs"
 
 # install require packages. 
 bash "${configs_dir_path}/package/setup.sh" 
-if type brew >/dev/null 1>&2; then 
+if ! type brew >/dev/null 1>&2; then 
 	echo "require brew!! Please restart after installing brew."
 	exit 1
 fi
@@ -17,6 +17,7 @@ sh "${configs_dir_path}/brew/setup.sh"
 
 # init user dir.
 ln -sf  ${configs_dir_path}/zshenv $HOME/.zshenv
+ln -sf  ${configs_dir_path}/zshenv $HOME/.bash_profile
 
 # link to user dir.
 ln -sfn ${configs_dir_path}/zsh $HOME/.zsh

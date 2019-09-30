@@ -3,7 +3,7 @@
 
 if [ $(uname) != "Darwin" ] ; then
   echo "Not macOS!"
-  exit 1
+  return
 fi
 
 ###### Base ######

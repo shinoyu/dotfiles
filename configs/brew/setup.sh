@@ -1,5 +1,6 @@
 #!/bin/sh
 set -u
+c_dir=$(cd $(dirname $0); pwd)
 
 : "setup brew" && {
 	if ! type brew >/dev/null 2>&1; then 
@@ -15,6 +16,7 @@ set -u
 	fi
 	
 	if type brew >/dev/null 2>&1; then 
-		brew bundle
+		brew install gcc
+		sh -c "cd $c_dir; brew bundle"
 	fi
 }

@@ -6,7 +6,8 @@ set -u
 
 c_dir=$(cd $(dirname $0); pwd)
 init_tmux() {
-	mkdir -p $HOME/.tmux/plugins
+	export TMUX_PLUGIN_MANAGER_PATH=$HOME/.tmux/plugins
+	mkdir -p $TMUX_PLUGIN_MANAGER_PATH
 }
 setup_conf() {
 	ln -sf  $c_dir/tmux.conf $HOME/.tmux.conf

@@ -1,16 +1,10 @@
 # License : MIT
 # http://mollifier.mit-license.org/
 ########################################
-# 環境変数
-export LANG=ja_JP.UTF-8
-export CLICOLOR=1
-export LSCOLORS=gxGxcxdxCxegedabagacad
-export GOPATH="$HOME"
-export PATH="$PATH:/usr/local/bin:$HOME/Library/Android/sdk/platform-tools:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin"
 
-export EDITOR="vim"
-export PAGER="less"
-export VISUAL="vim"
+autoload zargs
+autoload -U compinit
+compinit -d /tmp/$USER.zcompdump
 
 # OS 別の設定
 for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args"; do
@@ -39,7 +33,6 @@ cmd_exists anyenv && eval "$(anyenv init - zsh)"
 
 # その他変数
 local snippets_file_path=$HOME/.snippets
-
 
 # 色を使用出来るようにする
 autoload -Uz colors;colors

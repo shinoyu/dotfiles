@@ -18,7 +18,7 @@ setup_conf() {
 install_plugin_packages() {
 	if type git >/dev/null; then
 		if ! test -e $TMUX_PLUGIN_MANAGER_PATH/tpm; then
-			git clone https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER_PATH/tpm
+			git clone https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER_PATH/tpm && $TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins
 		fi
 	else
 		echo "warning!! require git. skip ====>"

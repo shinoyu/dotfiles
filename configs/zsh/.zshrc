@@ -174,6 +174,8 @@ bindkey '\e[4~' end-of-line
 ########################################
 # alias
 alias search='find . -name'
+alias pp='echo'
+alias lastcode='echo $?'
 alias p.f='find_process '
 alias history='history -t "%Y-%m-%d %a %H:%M:%S"'
 alias ...="cd ../../"

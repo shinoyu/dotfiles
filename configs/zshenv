@@ -15,6 +15,6 @@ uname -a | grep "microsoft" | grep "Linux">/dev/null && if [ $? -eq 0 ]; then
 fi
 
 #### PATH ##############################################
-bin_path="/usr/local/bin:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin"
-app_path="$HOME/Library/Android/sdk/platform-tools"
-export PATH="$PATH:$bin_path:$app_path"
+bin_path=/usr/local/bin:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin
+
+export PATH=$PATH:$bin_path

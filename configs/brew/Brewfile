@@ -1,0 +1,51 @@
+
+# tap repositories and their packages
+
+tap homebrew/bundle
+tap homebrew/cask
+tap homebrew/cask-versions
+tap homebrew/core
+tap homebrew/services
+
+brew direnv
+brew exa
+brew git
+brew mas
+brew go
+brew hub
+brew paco
+brew fzf
+brew tig
+brew vim
+brew webp
+brew xz
+brew zplug
+brew zsh
+brew zsh-completions
+brew tree
+brew wget
+brew jq
+brew ghq
+
+cask "android-studio"
+cask "charles"
+cask "clipy"
+cask "cyberduck"
+cask "dash"
+cask "sequel-pro"
+cask "visual-studio-code"
+cask "minikube"
+cask "karabiner-elements"
+cask "docker"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "hyper"
+cask "intellij-idea"
+cask "slack"
+
+tap caskroom/fonts
+cask font-migmix-1m
+cask font-fira-code
+
+# App Store applications
+mas "Monosnap", id=540348655 

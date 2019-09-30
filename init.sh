@@ -10,11 +10,6 @@ cd dotfiles
 	fi
 }
 
-: "os_init" && {
-	source ./init/init_darwin.sh
-	source ./init/init_brew.sh
-}
-
 #sh ./install_mitamae.sh
 sh ./env.sh
 sh ./install.sh

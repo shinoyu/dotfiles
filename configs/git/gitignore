@@ -5,3 +5,4 @@
 **/git-worktrees/
 .solargraph.yml
 .vscode/
+.idea/

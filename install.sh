@@ -31,6 +31,7 @@ sh "${configs_dir_path}/mac/setup.sh"
 sh "${configs_dir_path}/git/setup.sh"
 sh "${configs_dir_path}/hyper/setup.sh"
 sh "${configs_dir_path}/tmux/setup.sh"
+sh "${configs_dir_path}/vim/setup.sh"
 
 # link to user_bin.
 #ln -sfn ${c_dir}/tool/bin $HOME/bin

@@ -207,7 +207,7 @@ alias g_cb='git symbolic-ref --short HEAD'
 alias g_v='git browse'
 alias be='bundle exec'
 alias snip.edit="vim $snippets_file_path"
-
+alias rein="exec $SHELL -l"
 
 function input_current_branch() {
 	BUFFER+=$(eval "git symbolic-ref --short HEAD")

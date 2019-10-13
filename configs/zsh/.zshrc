@@ -6,6 +6,10 @@ autoload zargs
 autoload -U compinit
 compinit -d /tmp/$USER.zcompdump
 
+export GOPATH=$HOME
+export PATH=$PATH:$GOPATH/bin
+
+
 # OS 別の設定
 for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args"; do
 	local load_file="$ZDOTDIR/${v}"

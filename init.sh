@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -u
 
 git clone https://github.com/shinoyu/dotfiles
 cd dotfiles

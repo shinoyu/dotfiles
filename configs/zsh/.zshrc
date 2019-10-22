@@ -6,8 +6,11 @@ autoload zargs
 autoload -U compinit
 compinit -d /tmp/$USER.zcompdump
 
+export LANG="ja_JP.UTF-8"
+export LC_ALL=$LANG
+
 # OS 別の設定
-for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args"; do
+for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE"; do
 	local load_file="$ZDOTDIR/${v}"
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done

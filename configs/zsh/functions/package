@@ -1,0 +1,41 @@
+#!/bin/bash
+
+manager_update() {
+	if type pacman >/dev/null 2>&1; then
+		sudo pacman -Syy
+	elif type apt >/dev/null 2>&1; then
+		sudo apt update
+	elif type yum >/dev/null 2>&1; then
+		: 'todo: yum repository update '
+	elif type brew >/dev/null 2>&1; then
+		brew update
+	else 
+		echo 'warning package manaager not settings. skip ======>'
+	fi
+}
+
+install_package() {
+	local package_name=$1
+	if type "$package_name" >/dev/null 2>&1; then 
+		echo "$package_name is exist. skip =====>"
+		return
+	fi
+
+	if type pacman >/dev/null 2>&1; then
+		sudo pacman -S $package_name
+		return
+	fi
+	if type apt >/dev/null 2>&1; then
+		sudo apt install -y $package_name
+		return
+	fi
+	if type yum >/dev/null 2>&1; then
+		sudo yum install -y $package_name
+		return
+	fi
+	if type brew >/dev/null 2>&1; then
+		brew install $package_name
+		return
+	fi
+
+}

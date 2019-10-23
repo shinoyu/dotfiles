@@ -6,8 +6,8 @@ autoload zargs
 autoload -U compinit
 compinit -d /tmp/$USER.zcompdump
 
-export LANG="ja_JP.UTF-8"
-export LC_ALL=$LANG
+export LANG=ja_JP.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # OS 別の設定
 for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE"; do

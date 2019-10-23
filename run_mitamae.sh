@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -u
 
 # Mitamaeを使って構築する
 

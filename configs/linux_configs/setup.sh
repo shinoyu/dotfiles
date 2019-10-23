@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -u
 
 local_script_dir=$(cd $(dirname $0); pwd) 
 local_target_dir=${XDG_CONFIG_HOME:-$HOME/.config}

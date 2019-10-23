@@ -1,4 +1,4 @@
-set -eu
+set -u
 
 : "install" && {
   brew cask install alacritty

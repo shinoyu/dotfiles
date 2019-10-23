@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -u
 
 # setup provisining tools.
 version='1.5.6'

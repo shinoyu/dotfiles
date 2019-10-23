@@ -1,5 +1,4 @@
-#!/bin/sh
-set -e
+#!/bin/bash
 set -u
 c_dir=$(cd $(dirname $0); pwd)
 

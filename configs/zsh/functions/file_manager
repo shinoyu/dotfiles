@@ -1,14 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
 if cmd_exists thunar; then
-  function open() {
+  open() {
      local open_path=${1:-.}
      thunar ${open_path}
   }
 elif cmd_exists finder; then 
-     :  "mac no settings."
-elif cmd_exists explorer; then
-   : "windows no settings."
+   :  "mac no settings."
+elif cmd_exists explorer.exe; then
+   open() {
+      local open_path=${1:-.}
+      explorer.exe $open_path
+   }
 else
      echo "warning: file manager is not setting."
 fi 

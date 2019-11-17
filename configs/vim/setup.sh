@@ -1,5 +1,4 @@
-#!/bin/sh
-set -e
+#!/bin/bash
 set -u
 
 tmp_dir=$HOME/.vimtmp

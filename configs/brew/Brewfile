@@ -27,6 +27,8 @@ brew "wget"
 brew "jq"
 brew "ghq"
 brew "tmux"
+brew "anyenv"
+brew "chrome-cli"
 
 cask "android-studio"
 cask "charles"

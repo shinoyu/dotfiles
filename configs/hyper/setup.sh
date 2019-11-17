@@ -1,5 +1,5 @@
-#!/bin/sh
-set -eu
+#!/bin/bash
+set -u
 
 : "setup hyper" && {
   c_dir=$(cd $(dirname $0); pwd)

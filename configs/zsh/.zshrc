@@ -8,10 +8,11 @@ compinit -d /tmp/$USER.zcompdump
 
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
-
+export LANG=ja_JP.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # OS 別の設定
-for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE" "args/.zsh_args"; do
+for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE"; do
 	local load_file="$ZDOTDIR/${v}"
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done
@@ -211,7 +212,7 @@ alias g_cb='git symbolic-ref --short HEAD'
 alias g_v='git browse'
 alias be='bundle exec'
 alias snip.edit="vim $snippets_file_path"
-
+alias rein="exec $SHELL -l"
 
 function input_current_branch() {
 	BUFFER+=$(eval "git symbolic-ref --short HEAD")

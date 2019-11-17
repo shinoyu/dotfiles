@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 c_dir=$(cd $(dirname $0) && pwd)
 
 export_dir="$c_dir/.export"

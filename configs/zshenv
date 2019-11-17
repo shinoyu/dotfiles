@@ -1,4 +1,5 @@
 export LANG=ja_JP.UTF-8
+export LC_ALL=en_US.UTF-8
 export CLICOLOR=1
 export LSCOLORS=gxGxcxdxCxegedabagacad
 export EDITOR="vim"
@@ -15,6 +16,10 @@ uname -a | grep "microsoft" | grep "Linux">/dev/null && if [ $? -eq 0 ]; then
 fi
 
 #### PATH ##############################################
+export GOPATH="$HOME"
+export ZDOTDIR="$HOME/.zsh"
 bin_path='/usr/local/bin:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin'
 linux_brew_path='/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin'
-export PATH=$PATH:$bin_path:$linux_brew_path
+if [ -z ${TMUX:-} ]; then
+  export PATH=$PATH:$bin_path:$linux_brew_path
+fi

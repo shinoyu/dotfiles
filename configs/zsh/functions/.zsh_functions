@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 local script_path=$(cd $(dirname $0); pwd)
 source "${script_path}/shell"
@@ -6,3 +6,4 @@ source "${script_path}/shell"
 # source "${script_path}/peco"
 source "${script_path}/file_manager"
 source "${script_path}/fzf"
+source "${script_path}/package"

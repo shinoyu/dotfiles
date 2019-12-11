@@ -183,6 +183,15 @@ alias shell.rc.reload="source $HOME/.zsh/.zshrc"
 alias shell.rc.dir="cd $(dirname `readlink $HOME/.zsh`)"
 alias shell.env.edit='vim $HOME/.zshenv'
 
+# docker shorthand
+alias d.c='docker-compose'
+alias d.c.u='docker-compose up'
+alias d.c.s='docker-compose stpp'
+alias d.c.e='docker-compose exec'
+alias d.c.r='docker-compose run'
+alias d.c.b='docker-compose build'
+alias d.s.u='docker-sync-stack start'
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 

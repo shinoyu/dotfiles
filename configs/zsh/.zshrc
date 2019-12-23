@@ -152,6 +152,7 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt inc_append_history
+setopt hist_ignore_all_dups
 setopt hist_no_store
 setopt auto_param_slash       # ディレクトリ移動時に末尾slash補完
 setopt auto_menu

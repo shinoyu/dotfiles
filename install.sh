@@ -15,4 +15,7 @@ ln -sfn ${configs_dir_path}/bash_ext $HOME/.bash_ext
 ln -sfn ${configs_dir_path}/vim $HOME/.vim
 ln -sf  ${configs_dir_path}/vimrc $HOME/.vimrc
 
+# zshrc synx
+ln -sfn $HOME/.zsh/.zshrc_Machine ~/.zshrc
+
 bash -c '. setup.sh'

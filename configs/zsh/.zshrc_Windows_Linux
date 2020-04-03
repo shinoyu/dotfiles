@@ -16,4 +16,14 @@ export BROWSER='/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.
 
 : "setting windows alias" && {
   alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe"
+# apply wsl host display.
+update_display_env() {
+	host_address=`sudo grep -e nameserver /etc/resolv.conf | awk '{split($0,ary," ");print ary[2]}'`
+	export DISPLAY=${host_address}:0.0
 }
+if test $SHOW_DISPLAY_ENV_SETTING_MESSAGE=""; then
+echo -e "\033[34mif want to use X11, run command 'update_display_env'.\033[m"
+SHOW_DISPLAY_ENV_SETTING_MESSAGE=1
+else 
+  :
+fi

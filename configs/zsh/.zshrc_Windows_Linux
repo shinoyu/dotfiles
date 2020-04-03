@@ -1,3 +1,4 @@
+#!/bin/bash
 export LINUXBREW_BIN_PATH="$HOME/linuxbrew/.linuxbrew/bin"
 export LINUXBREW_SUDO_BIN_PATH="/home/linuxbrew/.linuxbrew/bin"
 export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}"

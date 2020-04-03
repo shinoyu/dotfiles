@@ -1,3 +1,4 @@
+#!/bin/bash
 # License : MIT
 # http://mollifier.mit-license.org/
 ########################################

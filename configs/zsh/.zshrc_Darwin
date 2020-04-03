@@ -1,3 +1,4 @@
+#!/bin/bash
 export CLICOLOR=1
 export HOMEBREW_BREWFILE="$HOME/.brewfile"
 
@@ -10,4 +11,3 @@ alias ls='ls -G -F'
 # key settings
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
-

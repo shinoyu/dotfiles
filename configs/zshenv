@@ -18,8 +18,9 @@ fi
 #### PATH ##############################################
 export GOPATH="$HOME"
 export ZDOTDIR="$HOME/.zsh"
-bin_path='/usr/local/bin:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin'
+bin_path="/usr/local/bin:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin"
 linux_brew_path='/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin'
 if [ -z ${TMUX:-} ]; then
   export PATH=$PATH:$bin_path:$linux_brew_path
 fi
+

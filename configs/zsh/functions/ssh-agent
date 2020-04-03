@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if ! cmd_exists ssh-agent; then
+    :
+else
+    : 
+    __init_agent() {
+        # from: https://qiita.com/wing-tail/items/66ddcfe352664a182ba1 thx!!
+        
+        local SSH_AGENT_FILE="$HOME/.ssh/ssh_agent"
+        # use running ssh-agent proc
+        [ -f $SSH_AGENT_FILE ] && source $SSH_AGENT_FILE >& /dev/null
+
+        # ssh-agent no running, make agent proc.
+        if ! ssh-add -l >& /dev/null ; then
+            ssh-agent > $SSH_AGENT_FILE
+            source $SSH_AGENT_FILE >& /dev/null
+            # load ssh_key 
+            find $HOME/.ssh -name id_rsa | xargs ssh-add
+        fi
+    }
+    __init_agent
+fi

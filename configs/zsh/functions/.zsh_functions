@@ -4,6 +4,9 @@ local script_path=$(cd $(dirname $0); pwd)
 source "${script_path}/shell"
 source "${script_path}/osx"
 
+# initialize
+source "${script_path}/ssh-agent"
+
 # source "${script_path}/peco"
 source "${script_path}/file_manager"
 source "${script_path}/fzf"

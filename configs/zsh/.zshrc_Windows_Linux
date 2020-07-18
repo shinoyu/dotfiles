@@ -1,18 +1,7 @@
 #!/bin/bash
-export LINUXBREW_BIN_PATH="$HOME/linuxbrew/.linuxbrew/bin"
-export LINUXBREW_SUDO_BIN_PATH="/home/linuxbrew/.linuxbrew/bin"
 export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}"
 export BROWSER='/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
 
-# init
-: "setting linuxbrew" && {
-  local target=""
-  exists ${LINUXBREW_BIN_PATH} && target="${LINUXBREW_BIN_PATH}"
-  exists ${LINUXBREW_SUDO_BIN_PATH} && target="${LINUXBREW_SUDO_BIN_PATH}"
-  exists ${target} && {-
-    eval `${target}/brew shellenv` && echo "run-state: wake up brew."
-  }
-}
 : "setting windows alias" && {
   alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe"
 }

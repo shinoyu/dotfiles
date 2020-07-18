@@ -2,10 +2,6 @@
 export PATH="$PATH:${LINUXBREW_BIN_PATH}:${LINUXBREW_SUDO_BIN_PATH}"
 export BROWSER='/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
 
-: "setting windows alias" && {
-  alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe"
-}
-
 # apply wsl host display.
 update_display_env() {
 	host_address=`sudo grep -e nameserver /etc/resolv.conf | awk '{split($0,ary," ");print ary[2]}'`

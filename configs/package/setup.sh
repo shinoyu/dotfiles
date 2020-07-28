@@ -1,7 +1,7 @@
 #!/bin/bash
 set -u
 
-need_packages=(git ruby curl)
+need_packages=(git curl golang)
 : "setup require packages" && {
 	echo "update package manager."
 	manager_update()

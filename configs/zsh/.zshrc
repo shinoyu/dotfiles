@@ -186,6 +186,7 @@ alias shell.rc.dir="cd $(dirname `readlink $HOME/.zsh`)"
 alias shell.env.edit='vim $HOME/.zshenv'
 
 # docker shorthand
+alias d.ak="docker ps | awk 'NR<=1 {next} {print $1}' | xargs docker kill"
 alias d.c='docker-compose'
 alias d.c.u='docker-compose up'
 alias d.c.s='docker-compose stop'

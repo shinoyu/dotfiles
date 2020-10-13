@@ -29,6 +29,8 @@ set lazyredraw "dont show doing macro
 set cursorline
 set scrolloff=10
 
+set completeopt=menuone,noinsert
+
 "format
 set autoindent
 set smartindent
@@ -72,6 +74,11 @@ nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
+
+"complete"
+inoremap <expr><CR> pumvisible() ? "<C-y>" : "<CR>"
+inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 
 "functions"
 "set diffexpr=GitDiffFormat()"

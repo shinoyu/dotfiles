@@ -19,6 +19,8 @@ set directory=~/.vimtmp
 set number
 set showmatch "comple to brathes
 set tabstop=2
+set showtabline=2
+set guioptions=e
 set shiftwidth=2
 set softtabstop=0
 set list
@@ -74,6 +76,8 @@ nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
+nnoremap <TAB>l :+tabmove
+nnoremap <TAB>h :-tabmove
 
 "complete"
 inoremap <expr><CR> pumvisible() ? "<C-y>" : "<CR>"

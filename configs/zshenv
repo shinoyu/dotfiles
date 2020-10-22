@@ -18,8 +18,9 @@ fi
 #### PATH ##############################################
 export GOPATH="$HOME"
 export ZDOTDIR="$HOME/.zsh"
-bin_path="/usr/local/bin:$GOPATH/bin:$HOME/bin:$HOME/.anyenv/bin"
+cargo_path="$HOME/.cargo/bin"
+anyenv_path"$HOME/.anyenv/bin"
+bin_path="/usr/local/bin:$GOPATH/bin:$HOME/bin:$anyenv_path:$cargo_path"
 if [ -z ${TMUX:-} ]; then
   export PATH=$PATH:$bin_path
 fi
-

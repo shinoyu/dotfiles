@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if ! cmd_exists fzf; then
+  :
+else
+git_worktree_path=.git-worktree
+fzf-git-recent-branches () {
+    local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
+        perl -pne 's{^refs/heads/}{}' | \
+        fzf --prompt "[select branch]>")
+    if [ -n "$selected_branch" ]; then
+        BUFFER="git checkout ${selected_branch}"
+        zle accept-line
+    fi
+} && zle -N fzf-git-recent-branches
+
+git-worktree-create() {
+    git worktree add $git_worktree_path/$1 -b $1 && echo "git-worktree: create $1!"
+    cd $git_worktree_path/$1
+}
+
+git-worktree-checkout() {
+    cd $git_worktree_path/$1 && echo "git-worktree: checkout $1."
+}
+
+git-worktree-remove() {
+    git worktree remove -f $git_worktree_path/$1 && echo "git-worktree: deleted ${1}."
+}
+
+alias gw.n='git-worktree-create'
+alias gw.ch='git-worktree-checkout'
+alias gw.rm='git-worktree-remove'
+fi

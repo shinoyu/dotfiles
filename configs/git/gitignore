@@ -2,7 +2,7 @@
 *.bak
 *.swp
 .DS_Store
-**/git-worktrees/
+**/.git-worktrees/
 .solargraph.yml
 .vscode/
 .idea/

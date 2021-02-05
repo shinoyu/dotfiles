@@ -6,5 +6,5 @@
 .solargraph.yml
 .vscode/
 .idea/
-configs/zsh/.zsh_history
-configs/zsh/.zsh_sessions
+**/.zsh_history
+**/.zsh_sessions

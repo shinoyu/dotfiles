@@ -7,6 +7,7 @@ export PAGER="less"
 export VISUAL="vim"
 export GOPATH="$HOME"
 export ZDOTDIR="$HOME/.zsh"
+export DOCKER_CONTENT_TRUST=1
 
 #### myself ENV ########################################
 export MY_DOC_ROOT="$HOME/_document"

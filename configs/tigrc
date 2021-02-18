@@ -1,6 +1,14 @@
 # メインビューの表示形式変更
-set main-view = id date author commit-title:graph=yes,refs=yes
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
 set diff-view = line-number:yes,interval=1 text
+set blame-view = date:default author:email-user id:yes,color line-number:yes,interval=1 text
+
+set pager-view  = line-number:yes,interval=1 text
+set stage-view  = line-number:yes,interval=1 text
+set log-view    = line-number:yes,interval=1 text
+set blob-view   = line-number:yes,interval=1 text
+set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+
 
 # show untracker
 set status-show-untracked-files = yes
@@ -30,5 +38,4 @@ bind generic P @sh -c 'hub browse -- commit/%(commit)'
 bind status <Ctrl-D> !git difftool --dir-diff
 bind branch n !git checkout -b %(prompt) %(branch)
 bind main <Ctrl-P> !git pull origin %(prompt)
-
 

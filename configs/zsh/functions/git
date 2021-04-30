@@ -14,6 +14,28 @@ fzf-git-recent-branches () {
     fi
 } && zle -N fzf-git-recent-branches
 
+fzf-git-open-issue () {
+    local selected_issue=$(gh issue list | fzf  --prompt "[select issue]>" | awk '{print $1}')
+    if [ -n "$selected_issue" ]; then
+        BUFFER="gh issue view ${selected_issue} --web"
+        zle accept-line
+    fi
+} && zle -N fzf-git-open-issue
+
+fzf-git-open-pr () {
+    local selected_pr=$(gh pr list | fzf --prompt "[select pr]>" | awk '{print $1}')
+    if [ -n "$selected_pr" ]; then
+        BUFFER="gh pr view ${selected_pr} --web"
+        zle accept-line
+    fi
+} && zle -N fzf-git-open-pr
+
+input_current_branch() {
+	BUFFER+=$(eval "git symbolic-ref --short HEAD")
+	CURSOR=$#BUFFER
+}
+zle -N input_current_branch
+
 git-worktree-create() {
     git worktree add $git_worktree_path/$1 -b $1 && echo "git-worktree: create $1!"
     cd $git_worktree_path/$1

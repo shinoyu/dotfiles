@@ -111,6 +111,9 @@ add-zsh-hook precmd _vsc_precmd
 
 bindkey '^h' fzf-select-history
 bindkey "^g^b" fzf-git-recent-branches
+bindkey "^g^i" fzf-git-open-issue
+bindkey "^g^p" fzf-git-open-pr
+bindkey '^gb' input_current_branch
 bindkey '^q' fzf-find-file
 bindkey '^f^f' fzf-find-file
 bindkey '^sf' fzf-snippets
@@ -225,13 +228,6 @@ alias g.v='git browse'
 alias be='bundle exec'
 alias snip.edit="vim $snippets_file_path"
 alias rein="exec $SHELL -l"
-
-function input_current_branch() {
-	BUFFER+=$(eval "git symbolic-ref --short HEAD")
-	CURSOR=$#BUFFER
-}
-zle -N input_current_branch
-bindkey '^gb' input_current_branch
 
 # 
 # Cを付与することで標準出力をクリップボードにコピー

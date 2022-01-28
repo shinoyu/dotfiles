@@ -1,0 +1,86 @@
+#!/bin/bash
+
+if ! cmd_exists docker; then
+  :
+else
+
+docker_run() {
+  local image='ubuntu:latest'
+  local workdir=$(pwd)
+  local oneshot=''
+  local error='none'
+  local cmd='bash'
+  while (( $# > 0 ))
+  do
+    case $1 in
+      -i | --image | --image=*)
+        if [[ "$1" =~ ^--image= ]]; then
+          image=$(echo $1 | sed -e 's/^--image=//')
+        elif [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
+          error="'image' requires an argument."
+          break
+        else
+          shift
+        fi
+        image=$1
+        ;;
+      -w | --workdir | --workdir=*)
+        if [[ "$1" =~ ^--workdir= ]]; then
+          workdir=$(echo $1 | sed -e 's/^--workdir=//')
+        elif [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
+          error="'workdir' requires an argument."
+          break
+        else
+          workdir="$2"
+          shift
+        fi
+        ;;
+      --rm)
+        oneshot="--rm"
+        ;;
+      -c | --command | --command=*)
+        if [[ "$1" =~ ^--command= ]]; then
+          cmd=$(echo $1 | sed -e 's/^--command=//')
+        elif [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
+          error="'command' requires an argument."
+          break
+        else
+          cmd="$2"
+          shift
+        fi
+        ;;
+      -*)
+        error="'$1' is invalid option"
+        break
+        ;;
+      *)
+        ;;
+    esac
+    shift
+  done
+
+  if [ $error != "none" ]; then 
+    echo $error
+  else
+  readonly name="$(echo $image | sed -e 's/:[a-zA-Z0-9]*$//')_run"
+
+  # echo "docker run" \
+  #   "--name=${name}" \
+  #   "${oneshot}" \
+  #   "-it" \
+  #   "-v ${workdir}:/work:z" \
+  #   "-w /work" \
+  #   "${image}" \
+  #   "${cmd}";
+
+  docker run \
+    --name=${name} \
+    ${oneshot} \
+    -it \
+    -v ${workdir}:/work:z \
+    -w /work \
+    ${image} \
+    ${cmd}
+  fi
+}
+fi

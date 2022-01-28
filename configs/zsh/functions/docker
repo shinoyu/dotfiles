@@ -20,9 +20,9 @@ docker_run() {
           error="'image' requires an argument."
           break
         else
+          image=$1
           shift
         fi
-        image=$1
         ;;
       -w | --workdir | --workdir=*)
         if [[ "$1" =~ ^--workdir= ]]; then

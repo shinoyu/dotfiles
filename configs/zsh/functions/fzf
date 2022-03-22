@@ -70,4 +70,11 @@ fzf-find-docker-ps() {
     CURSOR=$#BUFFER
 } && zle -N fzf-find-docker-ps
 
+
+fzf-find-aws-profile() {
+    selected_profiles=$(aws configure list-profiles | fzf --prompt "[find profile]" --height 30 | cut -d" " -f1)
+    BUFFER="${BUFFER}$(echo $selected_profiles | tr '\n' ' ')"
+    CURSOR=$#BUFFER
+} && zle -N fzf-find-aws-profile
+
 fi

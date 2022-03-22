@@ -122,6 +122,7 @@ bindkey "^g^r" fzf-recent-repos
 
 bindkey -r "^d" # logoutがbindされているので、無効化しておく
 bindkey "^d^p" fzf-find-docker-ps
+bindkey "^k^p" fzf-find-aws-profile
 ########################################
 # オプション
 

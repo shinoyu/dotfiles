@@ -2,11 +2,8 @@
 set -e
 
 : "setup rust" && {
-rust_tools=(
-    bat
-    exa
-    lsd
-)
+rust_tools=(git-delta)
+
 install_rustup() {
     curl https://sh.rustup.rs -sSf | sh
 }

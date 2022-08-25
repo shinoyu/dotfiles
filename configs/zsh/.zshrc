@@ -194,30 +194,6 @@ alias d.s.u='docker-sync-stack start'
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
-# for git
-alias g.s='git status -sb'
-alias g.cm='git commit'
-alias g.cm.r='git commit --amend'
-alias g.l='git log --oneline'
-alias g.ll='git log --oneline -5'
-alias g.l10='git log --oneline -10'
-alias g.ref='git reflog -10'
-alias g.b='git branch'
-alias g.b.d='git branch -D'
-alias g.b.ml="git branch --merged | grep -vE '^\*|master$|main$|develop$|pre_release$'"
-alias g.b.mld='g.b.ml | xargs -I % git branch -d %'
-alias g.d='git diff'
-alias g.d.d='git difftool --dir-diff'
-alias g.p='git pull'
-alias g.f='git fetch'
-alias g-m='git merge'
-alias g.ch='git checkout'
-alias g.ch.t='git checkout --theirs'
-alias g.ch.o='git checkout --own'
-alias g.s.u='git submodule update'
-alias g.c.u='git symbolic-ref --short HEAD | xargs git pull origin'
-alias g.cb='git symbolic-ref --short HEAD'
-alias g.v='git browse'
 alias be='bundle exec'
 alias snip.edit="vim $snippets_file_path"
 alias rein="exec $SHELL -l"

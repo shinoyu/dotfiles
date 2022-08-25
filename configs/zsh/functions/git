@@ -36,6 +36,12 @@ input_current_branch() {
 }
 zle -N input_current_branch
 
+fi
+
+if ! cmd_exists git; then
+  :
+else
+
 git-worktree-create() {
     git worktree add $git_worktree_path/$1 -b $1 && echo "git-worktree: create $1!"
     cd $git_worktree_path/$1
@@ -52,4 +58,27 @@ git-worktree-remove() {
 alias gw.n='git-worktree-create'
 alias gw.ch='git-worktree-checkout'
 alias gw.rm='git-worktree-remove'
+alias g.s='git status -sb'
+alias g.cm='git commit'
+alias g.cm.r='git commit --amend'
+alias g.l='git log --oneline -20'
+alias g.ref='git reflog -10'
+alias g.b='git branch'
+alias g.b.d='git branch -D'
+alias g.b.c='git checkout -b' 
+alias g.b.ml="git branch --merged | grep -vE '^\*|master$|main$|develop$|pre_release$'"
+alias g.b.mld='g.b.ml | xargs -I % git branch -d %'
+alias g.d='git diff'
+alias g.d.d='git difftool --dir-diff'
+alias g.p='git pull'
+alias g.f='git fetch --prune'
+alias g.m='git merge'
+alias g.ch='git checkout'
+alias g.ch.t='git checkout --theirs'
+alias g.ch.b='git checkout -'
+alias g.s.u='git submodule update'
+alias g.c.u='git symbolic-ref --short HEAD | xargs git pull origin'
+alias g.cb='git symbolic-ref --short HEAD'
+alias g.v='git browse'
+
 fi

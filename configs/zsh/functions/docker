@@ -64,15 +64,6 @@ docker_run() {
   else
   readonly name="$(echo $image | sed -e 's/:[a-zA-Z0-9]*$//')_run"
 
-  # echo "docker run" \
-  #   "--name=${name}" \
-  #   "${oneshot}" \
-  #   "-it" \
-  #   "-v ${workdir}:/work:z" \
-  #   "-w /work" \
-  #   "${image}" \
-  #   "${cmd}";
-
   docker run \
     --name=${name} \
     ${oneshot} \

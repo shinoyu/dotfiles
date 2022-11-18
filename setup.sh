@@ -11,7 +11,7 @@ echo 'setup....' &&  {
 	. "${configs_dir_path}/brew/setup.sh"
 
 	# setups
-	local packages=(git hyper tmux vim prompt)
+	local packages=(git mac tmux vim prompt rust ssh)
 	for target in "${packages[@]}";
 	do
 		echo "setup $target......"

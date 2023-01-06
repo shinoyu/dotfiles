@@ -1,7 +1,4 @@
 #!/bin/bash
-# License : MIT
-# http://mollifier.mit-license.org/
-########################################
 
 autoload zargs
 autoload -U compinit
@@ -13,17 +10,22 @@ export LANG=ja_JP.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # OS 別の設定
-for v in "functions/.zsh_functions" ".zshrc_$L_OSTYPE"; do
+for v in ".zshrc_$L_OSTYPE"; do
 	local load_file="$ZDOTDIR/${v}"
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done
 
-local zsh_machine_file="$ZDOTDIR/.zshrc_Machine"
+local zsh_machine_file="$ZDOTDIR/.zsh_Machine"
 if test -f $zsh_machine_file; then
 	. $zsh_machine_file && echo "loaded $zsh_machine_file"
 else
 	touch $zsh_machine_file && echo "create $zsh_machine_file"
 fi
+
+for v in "functions/.zsh_functions"; do
+	local load_file="$ZDOTDIR/${v}"
+	test -f $load_file && . $load_file && echo "loaded $load_file"
+done
 
 # ツール初期化、環境変数設定
 # FIXME: そのうち移動させること
@@ -80,7 +82,6 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 zstyle ':completion:*:default' menu select=2
-
 
 #######################################
 # vcs_info

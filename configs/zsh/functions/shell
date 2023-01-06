@@ -51,9 +51,9 @@
 
 : "alias settings" && {
   if cmd_exists lsd; then
-    alias lla='lsd -al'
+    alias ll='lsd -al'
   elif cmd_exists exa; then
-    alias lla='exa -lbgHhiam'
+    alias ll='exa -al'
   else
     alias ll='ls -al'
   fi

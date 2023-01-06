@@ -1,7 +1,7 @@
 set -u
 
 : "install" && {
-  brew cask install alacritty
+  brew install --cask alacritty
 }
 
 : "setup" && {

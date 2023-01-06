@@ -1,6 +1,8 @@
 **/vim/.netrwhist
 .zcompdump
-**/zsh/.zshrc_Machine
+**/.zsh_Machine
+**/.zshrc_Machine
+**/.zsh_history
 **/secret
 **/.export
 **/export.zip

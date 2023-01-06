@@ -113,29 +113,21 @@ bindkey '^sf' fzf-snippets
 bindkey '^si' fzf-snippets-add
 bindkey "^g^r" fzf-recent-repos
 
-bindkey -r "^d" # logoutがbindされているので、無効化しておく
+bindkey -r "^d" 				# logoutがbindされているので、無効化しておく
 bindkey "^d^p" fzf-find-docker-ps
 bindkey "^k^p" fzf-find-aws-profile
 ########################################
 # オプション
 
-# 日本語ファイル名を表示可能にする
-setopt print_eight_bit
+setopt print_eight_bit 			# displayable Japanese chars.
 setopt no_beep
 # Ctrl+S,Ctrl+Qのフローコントロールを無効
 setopt no_flow_control
-# Ctrl+Dでzshを終了しない
-setopt ignore_eof
-# '#' 以降をコメントとして扱う
-setopt interactive_comments
+setopt ignore_eof				# Ctrl＋D typed, but do not exit zsh process.
+setopt interactive_comments     # treat everything after '#'' as comment.
 setopt auto_cd
-# cd したら自動的にpushd
 setopt auto_pushd
-# 重複したディレクトリを追加しない
 setopt pushd_ignore_dups
-
-# 高機能なワイルドカード展開を使用する
-# setopt extended_glob
 
 # シェル終了時処理中ジョブをHUPしない
 setopt no_hup
@@ -144,14 +136,22 @@ setopt notify
 # 補完リストを小さくする
 setopt list_packed
 
+
+########################### 
+# history settings
+
 setopt share_history
 setopt extended_history
-setopt hist_ignore_dups
+setopt hist_ignore_dups	
 setopt hist_ignore_space
 setopt hist_reduce_blanks
-setopt inc_append_history
 setopt hist_ignore_all_dups
 setopt hist_no_store
+setopt inc_append_history
+
+###########################
+
+setopt correct
 setopt auto_param_slash       # ディレクトリ移動時に末尾slash補完
 setopt auto_menu
 setopt auto_param_keys        # 括弧補完

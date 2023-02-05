@@ -9,9 +9,11 @@ init_tmux() {
 	mkdir -p $TMUX_PLUGIN_MANAGER_PATH
 }
 setup_conf() {
-	ln -sf  $c_dir/tmux.conf $HOME/.tmux.conf
-	ln -sf  $c_dir/tmux-$L_OSTYPE.conf $HOME/.tmux/tmux-$L_OSTYPE.conf
-	ln -sf  $c_dir/plugins.conf $HOME/.tmux/plugins.conf
+	to_dir=$HOME/.config/tmux
+	mkdir -p $to_dir
+	ln -sf  $c_dir/tmux.conf $to_dir/tmux.conf
+	ln -sf  $c_dir/tmux-$L_OSTYPE.conf $to_dir/tmux-$L_OSTYPE.conf
+	ln -sf  $c_dir/plugins.conf $to_dir/plugins.conf
 }
 
 install_plugin_packages() {

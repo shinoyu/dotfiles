@@ -1,8 +1,8 @@
 set -u
 
-# : "install" && {
-#   brew reinstall --cask alacritty
-# }
+: "install" && {
+  brew install --cask alacritty
+}
 
 : "setup" && {
   c_dir=$(cd $(dirname $0); pwd)

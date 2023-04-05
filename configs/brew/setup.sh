@@ -17,6 +17,7 @@ c_dir=$(cd $(dirname $0); pwd)
 	
 	if type brew >/dev/null 2>&1; then 
 		brew install gcc
+		brew tap Homebrew/bundle
 		sh -c "cd $c_dir; brew bundle"
 	fi
 }

@@ -55,9 +55,6 @@ git-worktree-remove() {
     git worktree remove -f $git_worktree_path/$1 && echo "git-worktree: deleted ${1}."
 }
 
-alias gw.n='git-worktree-create'
-alias gw.ch='git-worktree-checkout'
-alias gw.rm='git-worktree-remove'
 alias g.s='git status -sb'
 alias g.cm='git commit'
 alias g.cm.r='git commit --amend'
@@ -79,6 +76,6 @@ alias g.ch.b='git checkout -'
 alias g.s.u='git submodule update'
 alias g.c.u='git symbolic-ref --short HEAD | xargs git pull origin'
 alias g.cb='git symbolic-ref --short HEAD'
-alias g.v='git browse'
+alias g.v='gh repo view --web'
 
 fi

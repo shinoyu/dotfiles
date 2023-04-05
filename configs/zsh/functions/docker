@@ -74,4 +74,12 @@ docker_run() {
     ${cmd}
   fi
 }
+
+alias d.a.k="docker ps | awk 'NR<=1 {next} {print $1}' | xargs docker kill"
+alias d.c='docker-compose'
+alias d.c.u='docker-compose up'
+alias d.c.s='docker-compose stop'
+alias d.c.e='docker-compose exec'
+alias d.c.r='docker-compose run'
+alias d.c.b='docker-compose build'
 fi

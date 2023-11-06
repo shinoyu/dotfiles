@@ -38,6 +38,7 @@ brew "tig"
 brew "tmux"
 brew "vim"
 brew "zsh"
+brew "ncurses"
 cask "alacritty"
 cask "discord"
 cask "firefox"
@@ -54,6 +55,7 @@ cask "rubymine"
 cask "sequel-ace"
 cask "slack"
 cask "visual-studio-code"
+cask "1password-cli"
 mas "Microsoft To Do", id: 1274495053
 mas "Monosnap", id: 540348655
 mas "PicGIF Lite", id: 844918735

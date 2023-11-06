@@ -8,6 +8,7 @@ export VISUAL="vim"
 export GOPATH="$HOME"
 export ZDOTDIR="$HOME/.zsh"
 export DOCKER_CONTENT_TRUST=1
+export GPG_TTY=$(tty)
 
 #### myself ENV ########################################
 export MY_DOC_ROOT="$HOME/_document"

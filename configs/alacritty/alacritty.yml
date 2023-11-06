@@ -10,7 +10,8 @@
 # each instance of Alacritty. If it is not present, alacritty will
 # check the local terminfo database and use `alacritty` if it is
 # available, otherwise `xterm-256color` is used.
-#TERM: xterm-256color
+env:
+  TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -273,7 +274,7 @@ shell:
 #    - --login
 
 # Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: true
+option_as_alt: true
 
 # Key bindings
 #

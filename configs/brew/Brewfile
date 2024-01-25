@@ -56,6 +56,7 @@ cask "sequel-ace"
 cask "slack"
 cask "visual-studio-code"
 cask "1password-cli"
+cask "xbar"
 mas "Microsoft To Do", id: 1274495053
 mas "Monosnap", id: 540348655
 mas "PicGIF Lite", id: 844918735

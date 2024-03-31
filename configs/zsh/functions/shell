@@ -10,6 +10,16 @@
   }
 }
 : "file/dir functions" && {
+  cmd_exists() {
+    type "$1" >/dev/null 2>&1
+  }
+  path_exists() { 
+    [[ -e $1 ]]
+  }
+  exists() {
+    cmd_exists $1 || path_exists $1
+  }
+
   current_dir() {
      echo $(cd $(dirname $0); pwd)
   }

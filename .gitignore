@@ -1,8 +1,7 @@
 **/vim/.netrwhist
 .zcompdump
 **/zsh/.zsh_sessions
-**/.zsh_Machine
-**/.zshrc_Machine
+**/zsh.local
 **/.zsh_history
 **/secret
 **/.export

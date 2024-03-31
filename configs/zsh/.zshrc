@@ -15,11 +15,13 @@ for v in ".zshrc_$L_OSTYPE"; do
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done
 
-local zsh_machine_file="$ZDOTDIR/.zsh_Machine"
-if test -f $zsh_machine_file; then
-	. $zsh_machine_file && echo "loaded $zsh_machine_file"
+local zsh_local_resource="$ZDOTDIR/zsh.local"
+if test -f $zsh_local_resource; then
+	. $zsh_local_resource && echo "loaded $zsh_local_resource"
 else
-	touch $zsh_machine_file && echo "create $zsh_machine_file"
+	touch $zsh_local_resource && \ 
+		ln -sfn  $zsh_local_resource $HOME/.zshrc && \
+		echo "create $zsh_local_resource"
 fi
 
 for v in "functions/.zsh_functions"; do

@@ -10,7 +10,6 @@ ln -sf  ${configs_dir_path}/zshenv $HOME/.bash_profile
 
 # link to user dir.
 ln -sfn ${configs_dir_path}/zsh $HOME/.zsh
-ln -sfn $HOME/.zsh/.zsh_Machine $HOME/.zshrc
 ln -sf  ${configs_dir_path}/tigrc $HOME/.tigrc
 ln -sfn ${configs_dir_path}/bash_ext $HOME/.bash_ext
 ln -sfn ${configs_dir_path}/vim $HOME/.vim

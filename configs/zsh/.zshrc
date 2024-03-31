@@ -15,13 +15,10 @@ for v in ".zshrc_$L_OSTYPE"; do
 	test -f $load_file && . $load_file && echo "loaded $load_file"
 done
 
+# loading local setttings
 local zsh_local_resource="$ZDOTDIR/zsh.local"
 if test -f $zsh_local_resource; then
 	. $zsh_local_resource && echo "loaded $zsh_local_resource"
-else
-	touch $zsh_local_resource && \ 
-		ln -sfn  $zsh_local_resource $HOME/.zshrc && \
-		echo "create $zsh_local_resource"
 fi
 
 for v in "functions/.zsh_functions"; do
@@ -35,11 +32,7 @@ cmd_exists rbenv && {
 	eval "$(rbenv init - zsh)"
 	export PATH="$PATH:$HOME/.rbenv/bin"
 }
-cmd_exists direnv && eval "$(direnv hook zsh)"
-cmd_exists hub && eval "$(hub alias -s)"
-cmd_exists git && export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
 cmd_exists nodebrew && export PATH="$PATH:$HOME/.nodebrew/current/bin:"
-cmd_exists anyenv && eval "$(anyenv init - zsh)"
 
 # その他変数
 local snippets_file_path=$HOME/.snippets

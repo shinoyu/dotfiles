@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export LANG=ja_JP.UTF-8
 export LC_ALL=en_US.UTF-8
 export CLICOLOR=1
@@ -5,13 +7,23 @@ export LSCOLORS=gxGxcxdxCxegedabagacad
 export EDITOR="vim"
 export PAGER="less"
 export VISUAL="vim"
-export GOPATH="$HOME"
-export ZDOTDIR="$HOME/.zsh"
 export DOCKER_CONTENT_TRUST=1
 export GPG_TTY=$(tty)
 
+### minimal cmd
+
+cmd_exists() {
+  type "$1" >/dev/null 2>&1
+}
+path_exists() { 
+  [[ -e $1 ]]
+}
+exists() {
+  cmd_exists $1 || path_exists $1
+}
+
 #### myself ENV ########################################
-export MY_DOC_ROOT="$HOME/_document"
+
 export L_OSTYPE=`uname`
 uname -a | grep "microsoft" | grep "Linux">/dev/null && if [ $? -eq 0 ]; then
   export L_OSTYPE=Windows_Linux
@@ -26,3 +38,10 @@ bin_path="/usr/local/bin:$GOPATH/bin:$HOME/bin:$anyenv_path:$cargo_path"
 if [ -z ${TMUX:-} ]; then
   export PATH=$PATH:$bin_path
 fi
+
+#### launch apps.
+path_exists /opt/homebrew/bin/brew && eval $(/opt/homebrew/bin/brew shellenv)
+cmd_exists git && export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
+cmd_exists direnv && eval "$(direnv hook zsh)"
+cmd_exists hub && eval "$(hub alias -s)"
+cmd_exists anyenv && eval "$(anyenv init - zsh)"

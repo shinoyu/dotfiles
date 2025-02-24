@@ -28,3 +28,6 @@
   branch = auto
 [ghq]
   root = ~/src
+[alias]
+  current-hash = show --format='%h' --no-patch
+  current-hash-l = show --format='%H' --no-patch

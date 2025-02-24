@@ -45,3 +45,4 @@ cmd_exists git && export PATH="$PATH:/usr/local/share/git-core/contrib/diff-high
 cmd_exists direnv && eval "$(direnv hook zsh)"
 cmd_exists hub && eval "$(hub alias -s)"
 cmd_exists anyenv && eval "$(anyenv init - zsh)"
+cmd_exists sheldon && eval "$(sheldon source)"

@@ -3,6 +3,7 @@
 **/zsh/.zsh_sessions
 **/zsh.local
 **/.zsh_history
+**/.zcompcache
 **/secret
 **/.export
 **/export.zip

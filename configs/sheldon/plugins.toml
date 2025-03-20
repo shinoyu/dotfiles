@@ -12,12 +12,20 @@
 
 shell = "zsh"
 
-[plugins]
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ['source']
 
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
+[templates]
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ['defer']
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ['defer']
+
+[plugins.powerlevel10k]
+github = "romkatv/powerlevel10k"

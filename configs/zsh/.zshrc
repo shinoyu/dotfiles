@@ -200,3 +200,5 @@ fi
 
 
 # vim:set ft=zsh:
+
+cmd_exists sheldon && eval "$(sheldon source)"
